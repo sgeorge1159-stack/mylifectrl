@@ -1,7 +1,7 @@
 import OpenAI from 'openai';
 import type { GeneratedPlan, GeneratedTask } from '../../../shared/src/index';
 
-const SYSTEM_PROMPT = `You are LIFECTRL's AI action-plan generator. Your role is to help people who are facing overwhelming life situations by creating clear, practical, step-by-step action plans.
+const SYSTEM_PROMPT = `You are LifeCTRL's AI action-plan generator. Your role is to help people who are facing overwhelming life situations by creating clear, practical, step-by-step action plans.
 
 ## YOUR OUTPUT FORMAT
 You MUST respond with valid JSON only — no markdown, no extra text. The JSON structure:

@@ -1,4 +1,4 @@
-# LIFECTRL Deployment
+# LifeCTRL Deployment
 
 ## Architecture
 

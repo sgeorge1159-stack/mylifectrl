@@ -1,8 +1,8 @@
-# LIFECTRL
+# LifeCTRL
 
 **Your AI-powered personal chief of staff.** Turn chaos into clarity.
 
-LIFECTRL transforms overwhelming life situations — job loss, moving, financial hardship, career changes, complicated paperwork — into clear, prioritized, step-by-step action plans.
+LifeCTRL transforms overwhelming life situations — job loss, moving, financial hardship, career changes, complicated paperwork — into clear, prioritized, step-by-step action plans.
 
 ## Tech Stack
 

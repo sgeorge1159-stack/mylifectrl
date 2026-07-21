@@ -1,4 +1,4 @@
-// Shared types for LIFECTRL
+// Shared types for LifeCTRL
 
 // ── User ──
 export interface User {

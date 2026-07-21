@@ -40,7 +40,7 @@ export default function Signup() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 text-2xl font-bold font-display text-calm-900">
-            <span className="text-brand-500">◈</span> LIFECTRL
+            <span className="text-brand-500">◈</span> LifeCTRL
           </Link>
           <h1 className="mt-4 text-2xl font-bold text-calm-900">Create your account</h1>
           <p className="mt-2 text-calm-600">Start turning chaos into clarity.</p>

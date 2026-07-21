@@ -2,7 +2,7 @@
   "name": "lifectrl",
   "version": "0.1.0",
   "private": true,
-  "description": "LIFECTRL — AI-powered personal chief of staff",
+  "description": "LifeCTRL — AI-powered personal chief of staff",
   "scripts": {
     "dev": "concurrently -n server,client -c blue,green \"bun run --cwd server dev\" \"bun run --cwd client dev\"",
     "build": "bun run --cwd server build && bun run --cwd client build",

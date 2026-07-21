@@ -8,7 +8,7 @@ export default function BrandLogo() {
       <>
         <img
           src="/logo.png"
-          alt="LIFECTRL™"
+          alt="LifeCTRL™"
           className="h-10 sm:h-12 w-auto"
           onError={() => setImgError(true)}
         />

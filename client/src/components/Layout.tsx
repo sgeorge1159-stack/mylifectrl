@@ -101,7 +101,7 @@ export default function Layout() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
             <div className="flex items-center gap-2">
               <span className="text-brand-500">◈</span>
-              <span>LIFECTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
+              <span>LifeCTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>
