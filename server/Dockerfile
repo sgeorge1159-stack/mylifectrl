@@ -2,14 +2,17 @@ FROM oven/bun:1
 
 WORKDIR /app
 
-# Copy package files
-COPY package.json bun.lock ./
+# Copy server dependency files
+COPY server/package.json server/bun.lock ./
 RUN bun install --frozen-lockfile
 
-# Copy source code
-COPY . .
+# Copy server source
+COPY server/ .
 
-# Build the server
+# Copy shared module (relative imports will resolve from /shared/)
+COPY shared/ /shared/
+
+# Build the server (Bun bundles all imports including shared/)
 RUN bun build src/index.ts --outdir dist --target bun
 
 # Run on port 3000
