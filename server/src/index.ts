@@ -1026,6 +1026,30 @@ app.patch('/api/concierge/bookings/:id/cancel', authMiddleware, (c) => {
   return c.json({ ok: true, data: updated });
 });
 
+// ── Feedback Routes ──
+
+// POST /api/feedback — submit user feedback
+app.post('/api/feedback', authMiddleware, async (c) => {
+  const db = getDb();
+  const userId = c.get('userId');
+  const body = await c.req.json();
+  const { message, page } = body;
+
+  if (!message || !message.trim()) {
+    return c.json<ApiResponse>({ ok: false, error: 'Message is required' }, 400);
+  }
+
+  if (message.trim().length > 2000) {
+    return c.json<ApiResponse>({ ok: false, error: 'Message must be 2000 characters or fewer' }, 400);
+  }
+
+  db.prepare(
+    'INSERT INTO feedback (user_id, message, page) VALUES (?, ?, ?)'
+  ).run(userId, message.trim(), (page || '').trim());
+
+  return c.json({ ok: true, data: { message: 'Feedback received. Thank you!' } }, 201);
+});
+
 // ── Serve static frontend in production (only when SERVE_STATIC is set) ──
 const isProd = (Bun.env.NODE_ENV || process.env["NODE_ENV"]) === 'production';
 const shouldServeStatic = process.env.SERVE_STATIC === 'true';

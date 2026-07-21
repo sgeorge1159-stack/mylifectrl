@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 interface PlanSummary {
@@ -11,10 +11,14 @@ interface PlanSummary {
   created_at: string;
 }
 
+const EXAMPLE_SITUATION = 'I just got out and need help with housing, ID, parole check-in, and health insurance.';
+
 export default function Dashboard() {
   const [user, setUser] = useState<any>(null);
   const [plans, setPlans] = useState<PlanSummary[]>([]);
   const [plansLoading, setPlansLoading] = useState(true);
+  const [tryItLoading, setTryItLoading] = useState(false);
+  const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
 
@@ -37,6 +41,28 @@ export default function Dashboard() {
     }
   }, []);
 
+  const handleTryExample = async () => {
+    setTryItLoading(true);
+    try {
+      const res = await fetch('/api/plans', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ situation: EXAMPLE_SITUATION }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        navigate(`/plans/${data.data.id}`);
+      }
+    } catch {
+      // Silently fail — user can create manually
+    } finally {
+      setTryItLoading(false);
+    }
+  };
+
   const formatDate = (dateStr: string) => {
     const d = new Date(dateStr);
     const now = new Date();
@@ -57,6 +83,42 @@ export default function Dashboard() {
         </h1>
         <p className="mt-2 text-calm-600 text-lg">Here's your command center.</p>
       </div>
+
+      {/* Try It Now — shown when user has zero plans */}
+      {!plansLoading && plans.length === 0 && (
+        <div className="card mb-10 border-brand-200 bg-gradient-to-br from-brand-50/20 to-white ring-1 ring-brand-100">
+          <h2 className="font-semibold text-calm-900 text-lg mb-3">Not sure where to start? Try an example:</h2>
+          <button
+            onClick={handleTryExample}
+            disabled={tryItLoading}
+            className="w-full text-left card border-brand-200 bg-white hover:border-brand-300 hover:shadow-lg transition-all duration-200 cursor-pointer group disabled:opacity-70 disabled:cursor-wait"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-500 text-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+                ✦
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-calm-800 text-base leading-relaxed">
+                  "{EXAMPLE_SITUATION}"
+                </p>
+                {tryItLoading ? (
+                  <div className="flex items-center gap-2 mt-3 text-sm text-brand-600">
+                    <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Building your plan...
+                  </div>
+                ) : (
+                  <span className="inline-block mt-3 text-sm font-medium text-brand-600 group-hover:text-brand-700">
+                    Click to try it →
+                  </span>
+                )}
+              </div>
+            </div>
+          </button>
+        </div>
+      )}
 
       {/* Quick actions */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">

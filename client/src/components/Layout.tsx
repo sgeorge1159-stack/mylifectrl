@@ -1,6 +1,7 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { STRIPE_LINKS, openPaymentLink } from '../config/payments';
+import FeedbackButton from './FeedbackButton';
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: '◈' },
@@ -111,6 +112,8 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      <FeedbackButton />
     </div>
   );
 }

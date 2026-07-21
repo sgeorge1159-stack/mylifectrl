@@ -129,6 +129,16 @@ export function migrate(dbPath?: string): Database {
   if (!docColNames.has('key_details')) db.run("ALTER TABLE documents ADD COLUMN key_details TEXT NOT NULL DEFAULT '[]'");
   if (!docColNames.has('ai_processed')) db.run('ALTER TABLE documents ADD COLUMN ai_processed INTEGER NOT NULL DEFAULT 0');
 
+  db.run(`
+    CREATE TABLE IF NOT EXISTS feedback (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      message TEXT NOT NULL,
+      page TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    )
+  `);
+
   // Indexes
   db.run('CREATE INDEX IF NOT EXISTS idx_plans_user ON plans(user_id)');
   db.run('CREATE INDEX IF NOT EXISTS idx_tasks_plan ON tasks(plan_id)');
@@ -136,6 +146,7 @@ export function migrate(dbPath?: string): Database {
   db.run('CREATE INDEX IF NOT EXISTS idx_vault_user ON vault_items(user_id)');
   db.run('CREATE INDEX IF NOT EXISTS idx_purchases_user ON purchases(user_id)');
   db.run('CREATE INDEX IF NOT EXISTS idx_bookings_user ON concierge_bookings(user_id)');
+  db.run('CREATE INDEX IF NOT EXISTS idx_feedback_user ON feedback(user_id)');
 
   // Seed kits if table is empty
   seedKits(db);

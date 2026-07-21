@@ -138,6 +138,18 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Testimonial */}
+      <section className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="card border-calm-200 inline-block max-w-lg">
+            <p className="text-xl text-calm-800 italic leading-relaxed">
+              "I would switch from premium ChatGPT to this."
+            </p>
+            <p className="mt-3 text-sm text-calm-500 font-medium">— Early user</p>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section className="py-20 bg-warm-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
