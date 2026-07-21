@@ -24,11 +24,12 @@ export default function Landing() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm font-medium">
-                <span>✦</span> Your AI-powered personal chief of staff
+                <span>✦</span> AI-powered personal chief of staff
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-calm-900 leading-tight">
-                Life's a lot.
-                <br /><span className="text-brand-500">CTRL</span> it.
+                Life feeling
+                <span className="text-brand-500"> overwhelming</span>?
+                <br />We've got you.
               </h1>
               <p className="text-lg sm:text-xl text-calm-600 max-w-lg">
                 LIFECTRL™ transforms chaos into clarity. Describe your situation — job loss, moving,
