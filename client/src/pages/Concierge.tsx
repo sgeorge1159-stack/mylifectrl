@@ -263,7 +263,7 @@ export default function Concierge() {
             className="card relative overflow-hidden border-brand-200 bg-gradient-to-br from-brand-50/20 via-white to-white"
           >
             {/* Subtle top accent */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-400 to-warm-400" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-400 to-accent-400" />
 
             <div className="relative pt-2">
               <h2 className="text-xl font-bold font-display text-calm-900 mb-1">

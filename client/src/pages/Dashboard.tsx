@@ -127,7 +127,7 @@ export default function Dashboard() {
         {[
           { to: '/plans', icon: '▦', title: 'Action Plans', desc: 'View and create your personalized action plans', color: 'bg-brand-50 text-brand-600', primary: true },
           { to: '/docs', icon: '◫', title: 'Document Studio', desc: 'Upload and organize your documents with AI', color: 'bg-calm-50 text-calm-600' },
-          { to: '/vault', icon: '◒', title: 'LifeVault', desc: 'Your secure, searchable document archive', color: 'bg-warm-50 text-warm-600' },
+          { to: '/vault', icon: '◒', title: 'LifeVault', desc: 'Your secure, searchable document archive', color: 'bg-accent-50 text-accent-600' },
           { to: '/kits', icon: '✦', title: 'Life Kits', desc: 'Expert guides for life transitions', color: 'bg-brand-50 text-brand-600' },
           { to: '/concierge', icon: '◆', title: 'Concierge', desc: 'Book human help for complex tasks', color: 'bg-calm-50 text-calm-600' },
         ].map((item) => (

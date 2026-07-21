@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Terms() {
   return (
-    <div className="min-h-screen flex flex-col bg-warm-50">
+    <div className="min-h-screen flex flex-col bg-accent-50">
       {/* Simple header */}
       <nav className="bg-white/80 backdrop-blur border-b border-calm-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
@@ -37,7 +37,7 @@ export default function Terms() {
         </div>
       </main>
 
-      <footer className="bg-warm-50 border-t border-calm-200">
+      <footer className="bg-accent-50 border-t border-calm-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
             <span>LIFECTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>

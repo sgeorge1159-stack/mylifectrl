@@ -211,7 +211,7 @@ export default function Landing() {
       </section>
 
       {/* Pricing */}
-      <section className="py-20 bg-warm-50">
+      <section className="py-20 bg-accent-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold font-display text-calm-900 text-center mb-4">
             Simple, transparent pricing
@@ -247,7 +247,7 @@ export default function Landing() {
 
             {/* Pro Plan */}
             <div className="card border-brand-300 bg-gradient-to-br from-brand-50/40 to-white p-8 flex flex-col relative">
-              <div className="absolute -top-3 right-4 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              <div className="absolute -top-3 right-4 bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded-full">
                 POPULAR
               </div>
               <h3 className="text-xl font-bold font-display text-calm-900 mb-2">LIFECTRL™ Pro</h3>
@@ -281,7 +281,7 @@ export default function Landing() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-b from-brand-500 to-warm-600 text-white">
+      <section className="py-20 bg-gradient-to-b from-brand-500 to-accent-600 text-white">
         <div className="max-w-2xl mx-auto px-4 text-center space-y-6">
           <h2 className="text-3xl sm:text-4xl font-bold font-display">
             From "I don't know where to start" to "I know exactly what to do next."
@@ -296,7 +296,7 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-warm-50 border-t border-calm-200">
+      <footer className="bg-accent-50 border-t border-calm-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2 text-calm-500 text-sm">
