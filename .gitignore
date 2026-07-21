@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files (contains secrets - NEVER commit)
+.env
+
+# Database files (local SQLite databases)
+*.db
+*.db-wal
+*.db-shm
+
+# Uploaded files
+uploads/
+
+# Build artifacts / cache
+*.tsbuildinfo
+.run/
+
+# OS files
+.DS_Store
+Thumbs.db
