@@ -6,7 +6,7 @@ const VALID_CATEGORIES: DocCategory[] = [
   'identification', 'tax', 'insurance', 'education', 'correspondence', 'other'
 ];
 
-const SYSTEM_PROMPT = `You are LIFECTRL's document analysis AI. Your role is to examine documents and extract practical administrative information.
+const SYSTEM_PROMPT = `You are LifeCTRL's document analysis AI. Your role is to examine documents and extract practical administrative information.
 
 ## YOUR OUTPUT FORMAT
 You MUST respond with valid JSON only — no markdown, no extra text. The JSON structure:

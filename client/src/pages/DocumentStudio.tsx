@@ -357,7 +357,7 @@ export default function DocumentStudio() {
           <div className="text-5xl mb-4 text-calm-300">◫</div>
           <h3 className="text-lg font-semibold text-calm-700 mb-2">No documents yet</h3>
           <p className="text-calm-500 max-w-md mx-auto">
-            Upload your first document — bills, letters, pay stubs, screenshots, emails, or any paperwork you need organized. LIFECTRL's AI will categorize and summarize it for you.
+            Upload your first document — bills, letters, pay stubs, screenshots, emails, or any paperwork you need organized. LifeCTRL's AI will categorize and summarize it for you.
           </p>
         </div>
       ) : viewMode === 'grid' ? (
@@ -506,7 +506,7 @@ export default function DocumentStudio() {
       {docs.length > 0 && (
         <div className="mt-8 text-center">
           <p className="text-calm-500 text-sm">
-            Upload emails, screenshots, PDFs, and letters — LIFECTRL's AI will organize them into structured, searchable records.
+            Upload emails, screenshots, PDFs, and letters — LifeCTRL's AI will organize them into structured, searchable records.
           </p>
         </div>
       )}

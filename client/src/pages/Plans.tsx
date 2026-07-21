@@ -105,7 +105,7 @@ export default function Plans() {
       <div className="card mb-8 border-brand-200 bg-gradient-to-br from-brand-50/30 to-white">
         <h2 className="font-semibold text-calm-900 mb-3 text-lg">Describe your situation</h2>
         <p className="text-sm text-calm-600 mb-4">
-          Tell LIFECTRL what you're facing in your own words. Our AI will build you a personalized, step-by-step action plan.
+          Tell LifeCTRL what you're facing in your own words. Our AI will build you a personalized, step-by-step action plan.
         </p>
         <form onSubmit={handleGenerate} className="space-y-4">
           <textarea

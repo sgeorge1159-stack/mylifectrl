@@ -31,7 +31,7 @@ export default function Landing() {
                 <br /><span className="text-brand-500 font-mono bg-brand-50/90 px-2 py-0.5 rounded-md border border-brand-200 shadow-sm inline-block">CTRL</span> it.
               </h1>
               <p className="text-lg sm:text-xl text-calm-600 max-w-lg">
-                LIFECTRL™ transforms chaos into clarity. Describe your situation — job loss, moving,
+                LifeCTRL™ transforms chaos into clarity. Describe your situation — job loss, moving,
                 finances, paperwork — and get a personalized, step-by-step action plan.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -250,7 +250,7 @@ export default function Landing() {
               <div className="absolute -top-3 right-4 bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded-full">
                 POPULAR
               </div>
-              <h3 className="text-xl font-bold font-display text-calm-900 mb-2">LIFECTRL™ Pro</h3>
+              <h3 className="text-xl font-bold font-display text-calm-900 mb-2">LifeCTRL™ Pro</h3>
               <div className="mb-4">
                 <span className="text-4xl font-bold text-calm-900">$14.99</span>
                 <span className="text-calm-500 text-sm">/month</span>
@@ -301,7 +301,7 @@ export default function Landing() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2 text-calm-500 text-sm">
               <span className="text-brand-500">◈</span>
-              <span>LIFECTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
+              <span>LifeCTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-6 text-sm">
               <Link to="/signup" className="text-calm-500 hover:text-brand-600 transition-colors">Get Started</Link>

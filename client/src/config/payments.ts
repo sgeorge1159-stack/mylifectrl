@@ -1,5 +1,5 @@
 /**
- * LIFECTRL Payment Links Configuration
+ * LifeCTRL Payment Links Configuration
  *
  * Centralized mapping of kit titles and products to Stripe payment links.
  * Update links here and all UI components pick them up automatically.
@@ -8,7 +8,7 @@
 // ── Stripe Payment Links ──
 
 export const STRIPE_LINKS = {
-  /** LIFECTRL Pro monthly subscription */
+  /** LifeCTRL Pro monthly subscription */
   pro: 'https://buy.stripe.com/9B6cN52g666o77edVC6kg01',
 
   /** Human Concierge session booking */

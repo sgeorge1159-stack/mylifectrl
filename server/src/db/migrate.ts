@@ -1,4 +1,4 @@
-// Database migration — creates all tables for LIFECTRL
+// Database migration — creates all tables for LifeCTRL
 import { Database } from 'bun:sqlite';
 import path from 'path';
 import { seedKits } from './seedKits';

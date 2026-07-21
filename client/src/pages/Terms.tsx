@@ -8,7 +8,7 @@ export default function Terms() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 text-xl font-bold text-calm-900 font-display">
             <span className="text-brand-500 text-2xl">◈</span>
-            LIFECTRL™
+            LifeCTRL™
           </Link>
           <Link to="/" className="btn-ghost text-sm">← Back home</Link>
         </div>
@@ -23,7 +23,7 @@ export default function Terms() {
           <p className="text-lg text-calm-500 mb-2 font-medium">Coming Soon</p>
           <p className="text-calm-600 leading-relaxed max-w-lg mx-auto">
             Our full Terms of Service are currently being prepared. In the meantime, by using
-            LIFECTRL™, you agree to use the platform responsibly. Unauthorized copying, scraping,
+            LifeCTRL™, you agree to use the platform responsibly. Unauthorized copying, scraping,
             reverse engineering, or misuse of our service is prohibited. For questions, contact us.
           </p>
           <div className="mt-8">
@@ -40,7 +40,7 @@ export default function Terms() {
       <footer className="bg-accent-50 border-t border-calm-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
-            <span>LIFECTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
+            <span>LifeCTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
             <div className="flex items-center gap-4">
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>
               <Link to="/terms" className="hover:text-brand-600 transition-colors font-medium text-calm-700">Terms</Link>
