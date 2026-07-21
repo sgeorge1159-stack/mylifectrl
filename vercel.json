@@ -3,6 +3,7 @@
   "outputDirectory": "client/dist",
   "framework": "vite",
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "https://api.mylifectrl.com/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

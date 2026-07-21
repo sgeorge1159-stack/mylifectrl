@@ -1,0 +1,24 @@
+# Fly.io configuration for LIFECTRL API
+# Docs: https://fly.io/docs/reference/configuration/
+
+app = "lifectrl-api"
+primary_region = "ord"
+
+[build]
+  dockerfile = "server/Dockerfile"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
+
+[mounts]
+  source = "data"
+  destination = "/data"
+  initial_size = "1gb"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 3000
+
+  [[services.ports]]
+    port = 3000
