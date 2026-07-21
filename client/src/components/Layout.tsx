@@ -18,7 +18,7 @@ export default function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-warm-50">
+    <div className="min-h-screen bg-accent-50">
       <nav className="bg-white border-b border-calm-200 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -44,7 +44,7 @@ export default function Layout() {
               ))}
               <button
                 onClick={() => openPaymentLink(STRIPE_LINKS.pro)}
-                className="ml-2 px-3 py-1.5 rounded-lg text-sm font-semibold bg-brand-500 text-white hover:bg-brand-600 transition-all shadow-sm"
+                className="ml-2 px-3 py-1.5 rounded-lg text-sm font-semibold bg-accent-500 text-white hover:bg-accent-600 transition-all shadow-sm"
               >
                 Upgrade to Pro
               </button>
@@ -82,7 +82,7 @@ export default function Layout() {
                   setMobileMenuOpen(false);
                   openPaymentLink(STRIPE_LINKS.pro);
                 }}
-                className="block w-full text-left px-3 py-2 rounded-lg text-sm font-semibold bg-brand-500 text-white hover:bg-brand-600 transition-all"
+                className="block w-full text-left px-3 py-2 rounded-lg text-sm font-semibold bg-accent-500 text-white hover:bg-accent-600 transition-all"
               >
                 <span className="mr-1.5">⬆</span>
                 Upgrade to Pro

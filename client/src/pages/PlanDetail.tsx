@@ -187,7 +187,7 @@ export default function PlanDetail() {
         </div>
 
         {/* Situation */}
-        <div className="mt-6 p-4 bg-warm-50 rounded-xl">
+        <div className="mt-6 p-4 bg-accent-50 rounded-xl">
           <h3 className="text-sm font-medium text-calm-500 mb-1">Your Situation</h3>
           <p className="text-calm-800">{plan.situation}</p>
         </div>

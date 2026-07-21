@@ -478,10 +478,10 @@ export default function KitDetail() {
                   <div
                     key={i}
                     className={`flex items-start gap-3 p-3 rounded-xl ${
-                      isLocked ? 'bg-calm-50/50 opacity-60' : 'bg-warm-50'
+                      isLocked ? 'bg-calm-50/50 opacity-60' : 'bg-accent-50'
                     }`}
                   >
-                    <span className="text-warm-500 font-bold text-lg flex-shrink-0 mt-0.5">
+                    <span className="text-accent-500 font-bold text-lg flex-shrink-0 mt-0.5">
                       {isLocked ? '🔒' : '✦'}
                     </span>
                     <p className={`text-sm leading-relaxed ${isLocked ? 'text-calm-400' : 'text-calm-800'}`}>
@@ -507,7 +507,7 @@ export default function KitDetail() {
 
       {/* Bottom CTA if not purchased */}
       {!isPurchased && (
-        <div className="mt-8 card border-brand-300 bg-gradient-to-r from-brand-50 to-warm-50 text-center">
+        <div className="mt-8 card border-brand-300 bg-gradient-to-r from-brand-50 to-accent-50 text-center">
           <h2 className="text-xl font-bold font-display text-calm-900 mb-2">
             Ready to take control?
           </h2>
