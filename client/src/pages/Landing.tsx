@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { STRIPE_LINKS, openPaymentLink } from '../config/payments';
+import BrandLogo from '../components/BrandLogo';
 
 export default function Landing() {
   return (
@@ -8,8 +9,7 @@ export default function Landing() {
       <nav className="bg-white/80 backdrop-blur border-b border-calm-200 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
           <span className="flex items-center gap-2 text-xl font-bold text-calm-900 font-display">
-            <span className="text-brand-500 text-2xl">◈</span>
-            LIFECTRL
+            <BrandLogo />
           </span>
           <div className="flex items-center gap-3">
             <Link to="/login" className="btn-ghost">Log in</Link>
@@ -32,7 +32,7 @@ export default function Landing() {
                 <br />We've got you.
               </h1>
               <p className="text-lg sm:text-xl text-calm-600 max-w-lg">
-                LIFECTRL transforms chaos into clarity. Describe your situation — job loss, moving,
+                LIFECTRL™ transforms chaos into clarity. Describe your situation — job loss, moving,
                 finances, paperwork — and get a personalized, step-by-step action plan.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -190,7 +190,7 @@ export default function Landing() {
               <div className="absolute -top-3 right-4 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">
                 POPULAR
               </div>
-              <h3 className="text-xl font-bold font-display text-calm-900 mb-2">LIFECTRL Pro</h3>
+              <h3 className="text-xl font-bold font-display text-calm-900 mb-2">LIFECTRL™ Pro</h3>
               <div className="mb-4">
                 <span className="text-4xl font-bold text-calm-900">$14.99</span>
                 <span className="text-calm-500 text-sm">/month</span>
@@ -241,13 +241,13 @@ export default function Landing() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2 text-calm-500 text-sm">
               <span className="text-brand-500">◈</span>
-              <span>LIFECTRL &copy; {new Date().getFullYear()}</span>
-              <span className="hidden sm:inline">·</span>
-              <span>Built with ❤️</span>
+              <span>LIFECTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-6 text-sm">
               <Link to="/signup" className="text-calm-500 hover:text-brand-600 transition-colors">Get Started</Link>
               <Link to="/login" className="text-calm-500 hover:text-brand-600 transition-colors">Log In</Link>
+              <Link to="/terms" className="text-calm-500 hover:text-brand-600 transition-colors">Terms</Link>
+              <Link to="/privacy" className="text-calm-500 hover:text-brand-600 transition-colors">Privacy</Link>
               <a href="mailto:hello@lifectrl.com" className="text-calm-500 hover:text-brand-600 transition-colors">Contact</a>
             </div>
           </div>

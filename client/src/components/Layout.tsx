@@ -2,6 +2,7 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { STRIPE_LINKS, openPaymentLink } from '../config/payments';
 import FeedbackButton from './FeedbackButton';
+import BrandLogo from './BrandLogo';
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: '◈' },
@@ -22,8 +23,7 @@ export default function Layout() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link to="/dashboard" className="flex items-center gap-2 text-xl font-bold text-calm-900 font-display">
-              <span className="text-brand-500 text-2xl">◈</span>
-              LIFECTRL
+              <BrandLogo />
             </Link>
 
             {/* Desktop nav */}
@@ -101,12 +101,12 @@ export default function Layout() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
             <div className="flex items-center gap-2">
               <span className="text-brand-500">◈</span>
-              <span>LIFECTRL &copy; {new Date().getFullYear()}</span>
-              <span className="hidden sm:inline">·</span>
-              <span>Built with ❤️</span>
+              <span>LIFECTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>
+              <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms</Link>
+              <Link to="/privacy" className="hover:text-brand-600 transition-colors">Privacy</Link>
               <a href="mailto:hello@lifectrl.com" className="hover:text-brand-600 transition-colors">Contact</a>
             </div>
           </div>
