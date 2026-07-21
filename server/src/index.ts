@@ -13,7 +13,11 @@ import fs from 'fs';
 const JWT_SECRET = process.env.JWT_SECRET || 'lifectrl-dev-secret-change-in-production';
 
 const app = new Hono();
-app.use('/*', cors());
+app.use('/*', cors({
+  origin: process.env.CORS_ORIGIN || 'https://www.mylifectrl.com',
+  allowMethods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization'],
+}));
 
 // ── Auth Middleware ──
 async function authMiddleware(c: Context, next: () => Promise<void>) {
@@ -319,7 +323,7 @@ app.patch('/api/plans/:id/tasks/:taskId', authMiddleware, async (c) => {
 });
 
 // ── Documents Routes ──
-const UPLOADS_DIR = path.join(import.meta.dirname, '..', 'uploads');
+const UPLOADS_DIR = process.env.UPLOADS_DIR || path.join(import.meta.dirname, '..', 'uploads');
 
 function ensureUploadsDir() {
   if (!fs.existsSync(UPLOADS_DIR)) {
@@ -1022,11 +1026,12 @@ app.patch('/api/concierge/bookings/:id/cancel', authMiddleware, (c) => {
   return c.json({ ok: true, data: updated });
 });
 
-// ── Serve static frontend in production ──
+// ── Serve static frontend in production (only when SERVE_STATIC is set) ──
 const isProd = (Bun.env.NODE_ENV || process.env["NODE_ENV"]) === 'production';
+const shouldServeStatic = process.env.SERVE_STATIC === 'true';
 const CLIENT_DIST = path.join(process.cwd(), '..', 'client', 'dist');
 
-if (isProd) {
+if (isProd && shouldServeStatic) {
   const serveStatic = async (c: Context) => {
     const filePath = c.req.path === '/' ? '/index.html' : c.req.path;
     const fullPath = path.join(CLIENT_DIST, filePath);
