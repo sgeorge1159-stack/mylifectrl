@@ -7,16 +7,15 @@ COPY server/package.json server/bun.lock ./
 RUN bun install --frozen-lockfile
 
 # Copy server source
-COPY server/ .
+COPY server/src ./src
+COPY server/tsconfig.json ./
 
-# Copy shared module (relative imports will resolve from /shared/)
+# Copy shared module 
 COPY shared/ /shared/
 
-# Build the server (Bun bundles all imports including shared/)
+# Build
 RUN bun build src/index.ts --outdir dist --target bun
 
-# Run on port 3000
 ENV PORT=3000
 EXPOSE 3000
-
 CMD ["bun", "run", "dist/index.js"]
