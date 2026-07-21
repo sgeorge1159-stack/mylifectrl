@@ -5,7 +5,7 @@ import FeedbackButton from './FeedbackButton';
 import BrandLogo from './BrandLogo';
 
 const navItems = [
-  { to: '/dashboard', label: 'Dashboard', icon: '◈' },
+  { to: '/dashboard', label: 'CTRL Center', icon: '◈' },
   { to: '/plans', label: 'Action Plans', icon: '▦' },
   { to: '/docs', label: 'Docs', icon: '◫' },
   { to: '/vault', label: 'LifeVault', icon: '◒' },

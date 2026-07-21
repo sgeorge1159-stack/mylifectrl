@@ -79,9 +79,11 @@ export default function Dashboard() {
       {/* Welcome */}
       <div className="mb-10">
         <h1 className="text-3xl font-bold font-display text-calm-900">
-          Welcome back{user ? `, ${user.name.split(' ')[0]}` : ''}
+          CTRL Center
         </h1>
-        <p className="mt-2 text-calm-600 text-lg">Here's your command center.</p>
+        <p className="mt-2 text-calm-600 text-lg">
+          Welcome back{user ? `, ${user.name.split(' ')[0]}` : ''}. Your personal command center.
+        </p>
       </div>
 
       {/* Try It Now — shown when user has zero plans */}

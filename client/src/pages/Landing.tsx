@@ -28,7 +28,7 @@ export default function Landing() {
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-calm-900 leading-tight">
                 Life's a lot.
-                <br /><span className="text-brand-500">CTRL</span> it.
+                <br /><span className="text-brand-500 font-mono bg-brand-50/90 px-2 py-0.5 rounded-md border border-brand-200 shadow-sm inline-block">CTRL</span> it.
               </h1>
               <p className="text-lg sm:text-xl text-calm-600 max-w-lg">
                 LIFECTRL™ transforms chaos into clarity. Describe your situation — job loss, moving,
@@ -84,6 +84,67 @@ export default function Landing() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Command Cards */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold font-display text-calm-900 text-center mb-2">
+            Your life,{' '}
+            <span className="font-mono bg-calm-100 px-2 py-0.5 rounded-md border border-calm-300 text-calm-800 text-lg align-middle">
+              CTRL
+            </span>
+            'd
+          </h2>
+          <p className="text-calm-500 text-center mb-10 text-sm">
+            Powerful commands for every life situation
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                key: 'CTRL',
+                cmd: 'LIFE',
+                title: 'Get a plan',
+                desc: 'Describe your situation and get a personalized action plan in seconds.',
+              },
+              {
+                key: 'ALT',
+                cmd: 'CHAOS',
+                title: 'Organize docs',
+                desc: 'Upload scattered documents and we organize them into a searchable timeline.',
+              },
+              {
+                key: 'ESC',
+                cmd: 'overwhelm',
+                title: 'Know what\'s next',
+                desc: 'Prioritized checklists with deadlines so you always know what to do.',
+              },
+              {
+                key: 'SHIFT',
+                cmd: 'priorities',
+                title: 'Stay flexible',
+                desc: 'Life changes? Your plan adapts with you.',
+              },
+            ].map((item) => (
+              <div
+                key={item.key}
+                className="bg-calm-50 border border-calm-200 rounded-2xl p-5 text-center hover:shadow-md hover:border-brand-200 transition-all duration-200"
+              >
+                <div className="inline-flex items-center gap-1 bg-white border border-calm-300 rounded-lg px-3 py-1.5 shadow-sm mb-4">
+                  <kbd className="font-mono text-xs font-bold text-calm-700 bg-calm-100 px-1.5 py-0.5 rounded">
+                    {item.key}
+                  </kbd>
+                  <span className="text-calm-400 text-xs">+</span>
+                  <kbd className="font-mono text-xs font-bold text-brand-600 bg-brand-50 px-1.5 py-0.5 rounded">
+                    {item.cmd}
+                  </kbd>
+                </div>
+                <h3 className="font-semibold text-calm-900 mb-1.5">{item.title}</h3>
+                <p className="text-sm text-calm-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
