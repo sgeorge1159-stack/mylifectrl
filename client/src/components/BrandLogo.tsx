@@ -9,7 +9,7 @@ export default function BrandLogo() {
         <img
           src="/logo.png"
           alt="LIFECTRL™"
-          className="h-8 w-auto"
+          className="h-10 sm:h-12 w-auto"
           onError={() => setImgError(true)}
         />
       </>
