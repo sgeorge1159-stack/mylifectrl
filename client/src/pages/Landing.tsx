@@ -297,7 +297,7 @@ export default function Landing() {
             universities, workforce programs, and social-service agencies.
           </p>
           <a
-            href="mailto:hello@lifectrl.com?subject=Institutional%20Access%20Inquiry"
+            href="mailto:Stephanie.george9066@gmail.com?subject=Institutional%20Access%20Inquiry"
             className="btn-secondary text-sm px-6 py-3"
           >
             Interested in institutional access? Contact us
