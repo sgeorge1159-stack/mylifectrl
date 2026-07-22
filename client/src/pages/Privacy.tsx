@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const LAST_UPDATED = '2026-07-21';
+const LAST_UPDATED = '2026-07-22';
 
 export default function Privacy() {
   return (
@@ -34,6 +34,11 @@ export default function Privacy() {
                 explains how we collect, use, disclose, and safeguard your information when you use the LifeCTRL™ platform
                 (the "Service"). By using the Service, you agree to the collection and use of information in accordance
                 with this policy.
+              </p>
+              <p className="mt-3">
+                This policy is designed to comply with global data privacy regulations including the EU General Data
+                Protection Regulation (GDPR), the California Consumer Privacy Act / California Privacy Rights Act
+                (CCPA/CPRA), and incorporates safeguards aligned with the HIPAA Security Framework.
               </p>
             </section>
 
@@ -156,9 +161,11 @@ export default function Privacy() {
                 unauthorized access, alteration, disclosure, or destruction. These measures include:
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-1">
-                <li>Encryption of data in transit using TLS/HTTPS;</li>
+                <li>Encryption of data at rest using AES-256 block-level encryption;</li>
+                <li>Encryption of data in transit using enforced TLS 1.3 tunnels;</li>
                 <li>Password hashing using bcrypt with appropriate work factors;</li>
-                <li>Database access controls and authentication;</li>
+                <li>Database access controls, authentication, and row-level security (RLS);</li>
+                <li>API Gateway token rotation and network password management;</li>
                 <li>Regular security reviews of our infrastructure and code.</li>
               </ul>
               <p className="mt-3">
@@ -166,9 +173,23 @@ export default function Privacy() {
                 information, we cannot guarantee its absolute security. You are responsible for maintaining the
                 confidentiality of your account credentials.
               </p>
+
+              <h3 className="text-lg font-semibold text-calm-800 mt-4 mb-2">6.1 Security Incident Response &amp; Breach Notification</h3>
+              <p>
+                In the event of a suspected or confirmed data breach, LifeCTRL maintains an immediate mitigation playbook:
+              </p>
+              <ul className="list-disc ml-6 mt-2 space-y-1">
+                <li><strong>Isolation:</strong> The API Gateway instantly revokes compromised routing tokens and rotates
+                  all database private network passwords.</li>
+                <li><strong>Assessment:</strong> Our technical team calculates the exact extent of row-level exposure by
+                  reviewing database access tracking logs.</li>
+                <li><strong>Notification:</strong> If your personal data is impacted, LifeCTRL will notify regulatory
+                  bodies and affected users via email within <strong>72 hours</strong> of breach confirmation, in
+                  compliance with GDPR Article 33.</li>
+              </ul>
             </section>
 
-            {/* SECTION 7: YOUR RIGHTS & CHOICES */}
+            {/* SECTION 7: YOUR RIGHTS AND CHOICES */}
             <section>
               <h2 className="text-xl font-bold font-display text-calm-900 mb-3">7. Your Rights and Choices</h2>
               <p>You have the following rights regarding your personal information:</p>
@@ -176,7 +197,7 @@ export default function Privacy() {
                 <li><strong>Access and update:</strong> You can access and update your account information at any time
                   through your account settings.</li>
                 <li><strong>Data deletion:</strong> You may delete your account and associated data by contacting us at
-                  hello@lifectrl.com. We will process your request within a reasonable timeframe.</li>
+                  s.george1159@gmail.com. We will process your request within a reasonable timeframe.</li>
                 <li><strong>Data export:</strong> Upon request, we can provide you with a copy of your personal data in
                   a machine-readable format.</li>
                 <li><strong>Communication preferences:</strong> You may opt out of non-essential communications by
@@ -186,9 +207,164 @@ export default function Privacy() {
               </ul>
             </section>
 
-            {/* SECTION 8: CHILDREN'S PRIVACY */}
+            {/* SECTION 8: GDPR COMPLIANCE */}
             <section>
-              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">8. Children's Privacy</h2>
+              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">8. GDPR Compliance (EU/EEA Users)</h2>
+              <p>
+                LifeCTRL processes personal data of individuals in the European Union and European Economic Area in
+                accordance with the General Data Protection Regulation (GDPR).
+              </p>
+
+              <h3 className="text-lg font-semibold text-calm-800 mt-4 mb-2">8.1 Lawful Basis for Processing</h3>
+              <p>
+                We process your personal data under the following lawful bases:
+              </p>
+              <ul className="list-disc ml-6 mt-2 space-y-1">
+                <li><strong>Contractual Necessity:</strong> Processing is required to deliver the generated action plans
+                  and related services you have purchased or requested through the platform.</li>
+                <li><strong>Consent:</strong> Explicit consent captured through the signup gate and, where applicable,
+                  through specific opt-in mechanisms for non-essential data processing activities.</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-calm-800 mt-4 mb-2">8.2 Right to Erasure (Article 17 — "Right to be Forgotten")</h3>
+              <p>
+                You may request total account purging at any time. Executing this request triggers a cascading backend
+                deletion sequence that removes your user record and all associated data — including action plans, plan
+                tasks, task dependencies, and LifeVault contents — from our production database. To exercise this right,
+                contact us at s.george1159@gmail.com.
+              </p>
+
+              <h3 className="text-lg font-semibold text-calm-800 mt-4 mb-2">8.3 Right to Access &amp; Portability (Articles 15 &amp; 20)</h3>
+              <p>
+                You may request access to your personal data and export your active action plans, dependency maps, and
+                task logs in a structured, machine-readable JSON format via your account portal or by contacting us.
+                We will respond to verified access and portability requests within 30 calendar days.
+              </p>
+            </section>
+
+            {/* SECTION 9: CCPA/CPRA COMPLIANCE */}
+            <section>
+              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">9. CCPA/CPRA Compliance (California Residents)</h2>
+              <p>
+                LifeCTRL complies with the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act
+                (CPRA). California residents have the following specific rights:
+              </p>
+              <ul className="list-disc ml-6 mt-2 space-y-1">
+                <li>
+                  <strong>No Sale of Data:</strong> LifeCTRL explicitly asserts that it <strong>does not sell, rent, or
+                  share</strong> user narratives, transactional records, or profile attributes with third-party data
+                  brokers or advertisement networks. We do not monetize your personal information.
+                </li>
+                <li>
+                  <strong>Right to Know:</strong> You may request details about the categories and specific pieces of
+                  personal information we have collected about you in the preceding 12 months.
+                </li>
+                <li>
+                  <strong>Right to Delete:</strong> You may request deletion of your personal information, subject to
+                  certain legal exceptions.
+                </li>
+                <li>
+                  <strong>Right to Limit Use of Sensitive Personal Information:</strong> You maintain full control over
+                  your processed Life Kits and may pause, archive, or completely purge your processed data at any time
+                  through your account settings or by contacting us.
+                </li>
+                <li>
+                  <strong>Non-Discrimination:</strong> We will not discriminate against you for exercising any of your
+                  CCPA/CPRA rights.
+                </li>
+              </ul>
+              <p className="mt-3">
+                To exercise your CCPA/CPRA rights, contact us at s.george1159@gmail.com. We will verify your identity
+                before processing your request and respond within 45 calendar days as required by law.
+              </p>
+            </section>
+
+            {/* SECTION 10: HIPAA DATA SEGREGATION */}
+            <section>
+              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">10. Health-Related Data &amp; HIPAA Safeguards</h2>
+              <p>
+                LifeCTRL is a general-purpose strategic planning tool and is not a covered entity under the Health
+                Insurance Portability and Accountability Act (HIPAA). However, we recognize that users may choose to
+                input medical or health-related information into their personal narratives and action plans.
+              </p>
+              <p className="mt-3">
+                To protect such health-adjacent data, we implement the following safeguards:
+              </p>
+              <ul className="list-disc ml-6 mt-2 space-y-1">
+                <li>
+                  <strong>Row-Level Security (RLS) Isolation:</strong> The platform utilizes row-level security to ensure
+                  that health-adjacent variables, tasks, or narrative content are never cached in shared systemic memory
+                  or utilized to optimize public LLM pathways. All data remains sandboxed to your specific user ID.
+                </li>
+                <li>
+                  <strong>Data Minimization:</strong> Our engine parses and extracts only the operational variables
+                  required to build your target Life Kit. Superfluous background text metadata is structurally ignored
+                  to prevent unnecessary data retention.
+                </li>
+                <li>
+                  <strong>No Secondary Use:</strong> Health-adjacent data is never used for model training, analytics
+                  aggregation, or any purpose beyond delivering your requested action plan.
+                </li>
+              </ul>
+              <p className="mt-3">
+                If you have specific questions about how health-related data is handled within your account, please
+                contact us at s.george1159@gmail.com.
+              </p>
+            </section>
+
+            {/* SECTION 11: INTERNATIONAL DATA TRANSFERS */}
+            <section>
+              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">11. International Data Transfers &amp; Subprocessors</h2>
+              <p>
+                Your information may be transferred to and processed on servers located in the United States and other
+                jurisdictions where our service providers operate. These jurisdictions may have data protection laws that
+                differ from those in your country of residence.
+              </p>
+              <p className="mt-3">
+                Data transfers outside the European Economic Area (EEA) rely on Standard Contractual Clauses (SCCs)
+                embedded within our infrastructure vendor agreements. LifeCTRL strictly vectors data processing only
+                through vetted, compliant subprocessors:
+              </p>
+
+              <div className="overflow-x-auto mt-4">
+                <table className="w-full border-collapse border border-calm-200 rounded-lg overflow-hidden">
+                  <thead className="bg-calm-100">
+                    <tr>
+                      <th className="text-left px-4 py-3 border-b border-calm-200 font-semibold text-calm-800">Subprocessor</th>
+                      <th className="text-left px-4 py-3 border-b border-calm-200 font-semibold text-calm-800">Core Purpose</th>
+                      <th className="text-left px-4 py-3 border-b border-calm-200 font-semibold text-calm-800">Compliance Framework</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-calm-100">
+                      <td className="px-4 py-3 font-medium text-calm-800">Stripe, Inc.</td>
+                      <td className="px-4 py-3">Financial Monetization &amp; Billing</td>
+                      <td className="px-4 py-3">
+                        PCI-DSS Level 1 Certified<br />
+                        SOC 1 &amp; SOC 2
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3 font-medium text-calm-800">Vercel</td>
+                      <td className="px-4 py-3">Encrypted Storage &amp; Infrastructure</td>
+                      <td className="px-4 py-3">
+                        ISO 27001<br />
+                        SOC 2 Type II
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p className="mt-3">
+                By using the Service, you consent to the transfer of your information to the United States and other
+                jurisdictions as described in this Privacy Policy and our subprocessor agreements.
+              </p>
+            </section>
+
+            {/* SECTION 12: CHILDREN'S PRIVACY */}
+            <section>
+              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">12. Children's Privacy</h2>
               <p>
                 The Service is not intended for individuals under the age of 18. We do not knowingly collect personal
                 information from children under 18. If we become aware that we have collected personal information from
@@ -196,20 +372,9 @@ export default function Privacy() {
               </p>
             </section>
 
-            {/* SECTION 9: INTERNATIONAL DATA TRANSFERS */}
+            {/* SECTION 13: CHANGES TO THIS POLICY */}
             <section>
-              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">9. International Data Transfers</h2>
-              <p>
-                Your information may be transferred to and processed on servers located in the United States and other
-                jurisdictions where our service providers operate. These jurisdictions may have data protection laws that
-                differ from those in your country of residence. By using the Service, you consent to the transfer of your
-                information to the United States and other jurisdictions as described in this Privacy Policy.
-              </p>
-            </section>
-
-            {/* SECTION 10: CHANGES TO THIS POLICY */}
-            <section>
-              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">10. Changes to This Privacy Policy</h2>
+              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">13. Changes to This Privacy Policy</h2>
               <p>
                 We may update this Privacy Policy from time to time. We will notify you of material changes by posting
                 the updated policy on the Service and updating the "Last updated" date. Your continued use of the Service
@@ -218,14 +383,14 @@ export default function Privacy() {
               </p>
             </section>
 
-            {/* SECTION 11: CONTACT US */}
+            {/* SECTION 14: CONTACT US */}
             <section>
-              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">11. Contact Us</h2>
+              <h2 className="text-xl font-bold font-display text-calm-900 mb-3">14. Contact Us</h2>
               <p>
-                If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices,
-                please contact us at{' '}
-                <a href="mailto:hello@lifectrl.com" className="text-brand-600 hover:text-brand-700 underline">
-                  hello@lifectrl.com
+                If you have any questions, concerns, or requests regarding this Privacy Policy, our data practices, or
+                to exercise any of the rights described in this policy, please contact us at{' '}
+                <a href="mailto:s.george1159@gmail.com" className="text-brand-600 hover:text-brand-700 underline">
+                  s.george1159@gmail.com
                 </a>.
               </p>
             </section>
@@ -245,7 +410,7 @@ export default function Privacy() {
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>
               <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms of Service</Link>
               <Link to="/privacy" className="hover:text-brand-600 transition-colors font-medium text-calm-700">Privacy Policy</Link>
-              <a href="mailto:hello@lifectrl.com" className="hover:text-brand-600 transition-colors">Contact</a>
+              <a href="mailto:s.george1159@gmail.com" className="hover:text-brand-600 transition-colors">Contact</a>
             </div>
           </div>
         </div>
