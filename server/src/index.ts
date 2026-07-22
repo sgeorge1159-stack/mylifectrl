@@ -5,6 +5,8 @@ import { getDb } from './db';
 import type { User, ApiResponse, GeneratedPlan } from '../../shared/src/index';
 import { generatePlan } from './ai/planGenerator';
 import { analyzeDocument, categorizeByFilename } from './ai/documentAnalyzer';
+import { handleStripeWebhook } from './stripeWebhook';
+import Stripe from 'stripe';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import path from 'path';
@@ -18,6 +20,11 @@ app.use('/*', cors({
   allowMethods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization'],
 }));
+
+// ── Stripe Webhook (must read raw body — mounted before any JSON-body routes) ──
+// Hono parses request bodies lazily (c.req.json() / c.req.text() on demand),
+// so the webhook route safely reads the raw body via c.req.text() without conflict.
+app.post('/api/stripe/webhook', (c) => handleStripeWebhook(c));
 
 // ── Auth Middleware ──
 async function authMiddleware(c: Context, next: () => Promise<void>) {
@@ -34,6 +41,44 @@ async function authMiddleware(c: Context, next: () => Promise<void>) {
     return c.json<ApiResponse>({ ok: false, error: 'Invalid token' }, 401);
   }
 }
+
+// ── Stripe Checkout Session (server-side, sets client_reference_id) ──
+function getStripeClient(): Stripe | null {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) return null;
+  return new Stripe(key, { apiVersion: '2025-06-30.acacia' as any });
+}
+
+app.post('/api/stripe/create-checkout-session', authMiddleware, async (c) => {
+  const stripe = getStripeClient();
+  if (!stripe) {
+    return c.json<ApiResponse>({ ok: false, error: 'Stripe is not configured' }, 500);
+  }
+
+  const userId = c.get('userId');
+  const body = await c.req.json();
+  const { priceId, successUrl, cancelUrl, mode } = body;
+
+  if (!priceId || !successUrl || !cancelUrl) {
+    return c.json<ApiResponse>({ ok: false, error: 'priceId, successUrl, and cancelUrl are required' }, 400);
+  }
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      mode: mode || 'subscription',
+      payment_method_types: ['card'],
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: successUrl,
+      cancel_url: cancelUrl,
+      client_reference_id: String(userId), // Links Stripe session to our user record
+    });
+
+    return c.json({ ok: true, data: { url: session.url, sessionId: session.id } });
+  } catch (err: any) {
+    console.error('[Stripe] Checkout session creation failed:', err.message);
+    return c.json<ApiResponse>({ ok: false, error: `Stripe error: ${err.message}` }, 500);
+  }
+});
 
 // ── Health ──
 app.get('/api/health', (c) => {
@@ -66,7 +111,7 @@ app.post('/api/auth/signup', async (c) => {
     'INSERT INTO users (email, name, password_hash, tos_accepted_at, privacy_policy_accepted_at) VALUES (?, ?, ?, ?, ?)'
   ).run(email, name, passwordHash, now, now);
 
-  const user = db.prepare('SELECT id, email, name, tos_accepted_at, privacy_policy_accepted_at, created_at, updated_at FROM users WHERE id = ?').get(result.lastInsertRowid) as User;
+  const user = db.prepare('SELECT id, email, name, stripe_customer_id, stripe_subscription_status, tos_accepted_at, privacy_policy_accepted_at, created_at, updated_at FROM users WHERE id = ?').get(result.lastInsertRowid) as User;
   const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
 
   return c.json({ ok: true, data: { user, token } });
@@ -95,6 +140,8 @@ app.post('/api/auth/login', async (c) => {
     id: row.id,
     email: row.email,
     name: row.name,
+    stripe_customer_id: row.stripe_customer_id,
+    stripe_subscription_status: row.stripe_subscription_status,
     created_at: row.created_at,
     updated_at: row.updated_at,
   };
