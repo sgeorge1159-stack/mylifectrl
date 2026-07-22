@@ -5,6 +5,8 @@ export interface User {
   id: number;
   email: string;
   name: string;
+  tos_accepted_at?: string;
+  privacy_policy_accepted_at?: string;
   created_at: string;
   updated_at: string;
 }

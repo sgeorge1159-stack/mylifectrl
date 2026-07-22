@@ -12,15 +12,23 @@ export function migrate(dbPath?: string): Database {
   db.run('PRAGMA foreign_keys = ON');
 
   db.run(`
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      email TEXT NOT NULL UNIQUE,
-      name TEXT NOT NULL,
-      password_hash TEXT NOT NULL,
-      created_at TEXT NOT NULL DEFAULT (datetime('now')),
-      updated_at TEXT NOT NULL DEFAULT (datetime('now'))
-    )
-  `);
+      CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT NOT NULL UNIQUE,
+        name TEXT NOT NULL,
+        password_hash TEXT NOT NULL,
+        tos_accepted_at TEXT,
+        privacy_policy_accepted_at TEXT,
+        created_at TEXT NOT NULL DEFAULT (datetime('now')),
+        updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+      )
+    `);
+
+    // Migrate: add ToS/privacy columns if they don't exist (for existing databases)
+    const userCols = db.prepare("PRAGMA table_info(users)").all() as { name: string }[];
+    const userColNames = new Set(userCols.map(c => c.name));
+    if (!userColNames.has('tos_accepted_at')) db.run('ALTER TABLE users ADD COLUMN tos_accepted_at TEXT');
+    if (!userColNames.has('privacy_policy_accepted_at')) db.run('ALTER TABLE users ADD COLUMN privacy_policy_accepted_at TEXT');
 
   db.run(`
     CREATE TABLE IF NOT EXISTS plans (

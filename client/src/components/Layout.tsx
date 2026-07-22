@@ -105,8 +105,8 @@ export default function Layout() {
             </div>
             <div className="flex items-center gap-4">
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>
-              <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms</Link>
-              <Link to="/privacy" className="hover:text-brand-600 transition-colors">Privacy</Link>
+              <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms of Service</Link>
+              <Link to="/privacy" className="hover:text-brand-600 transition-colors">Privacy Policy</Link>
               <a href="mailto:hello@lifectrl.com" className="hover:text-brand-600 transition-colors">Contact</a>
             </div>
           </div>
