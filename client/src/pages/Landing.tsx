@@ -331,8 +331,8 @@ export default function Landing() {
             <div className="flex items-center gap-6 text-sm">
               <Link to="/signup" className="text-calm-500 hover:text-brand-600 transition-colors">Get Started</Link>
               <Link to="/login" className="text-calm-500 hover:text-brand-600 transition-colors">Log In</Link>
-              <Link to="/terms" className="text-calm-500 hover:text-brand-600 transition-colors">Terms</Link>
-              <Link to="/privacy" className="text-calm-500 hover:text-brand-600 transition-colors">Privacy</Link>
+              <Link to="/terms" className="text-calm-500 hover:text-brand-600 transition-colors">Terms of Service</Link>
+              <Link to="/privacy" className="text-calm-500 hover:text-brand-600 transition-colors">Privacy Policy</Link>
               <a href="mailto:hello@lifectrl.com" className="text-calm-500 hover:text-brand-600 transition-colors">Contact</a>
             </div>
           </div>

@@ -43,10 +43,15 @@ app.get('/api/health', (c) => {
 // ── Auth Routes ──
 app.post('/api/auth/signup', async (c) => {
   const body = await c.req.json();
-  const { email, name, password } = body;
+  const { email, name, password, tos_accepted, privacy_policy_accepted } = body;
 
   if (!email || !name || !password) {
     return c.json<ApiResponse>({ ok: false, error: 'Email, name, and password are required' }, 400);
+  }
+
+  // Require ToS and Privacy Policy acceptance
+  if (!tos_accepted || !privacy_policy_accepted) {
+    return c.json<ApiResponse>({ ok: false, error: 'You must agree to the Terms of Service and Privacy Policy to create an account.' }, 400);
   }
 
   const db = getDb();
@@ -56,11 +61,12 @@ app.post('/api/auth/signup', async (c) => {
   }
 
   const passwordHash = await bcrypt.hash(password, 10);
+  const now = new Date().toISOString();
   const result = db.prepare(
-    'INSERT INTO users (email, name, password_hash) VALUES (?, ?, ?)'
-  ).run(email, name, passwordHash);
+    'INSERT INTO users (email, name, password_hash, tos_accepted_at, privacy_policy_accepted_at) VALUES (?, ?, ?, ?, ?)'
+  ).run(email, name, passwordHash, now, now);
 
-  const user = db.prepare('SELECT id, email, name, created_at, updated_at FROM users WHERE id = ?').get(result.lastInsertRowid) as User;
+  const user = db.prepare('SELECT id, email, name, tos_accepted_at, privacy_policy_accepted_at, created_at, updated_at FROM users WHERE id = ?').get(result.lastInsertRowid) as User;
   const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
 
   return c.json({ ok: true, data: { user, token } });
