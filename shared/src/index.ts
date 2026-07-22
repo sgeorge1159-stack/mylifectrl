@@ -5,6 +5,8 @@ export interface User {
   id: number;
   email: string;
   name: string;
+  stripe_customer_id?: string | null;
+  stripe_subscription_status?: string;
   tos_accepted_at?: string;
   privacy_policy_accepted_at?: string;
   created_at: string;
