@@ -280,6 +280,31 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Institutional Access */}
+      <section className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-100 text-accent-700 rounded-full text-sm font-medium mb-4">
+            On the Roadmap
+          </div>
+          <h2 className="text-3xl font-bold font-display text-calm-900 mb-3">
+            For Organizations
+          </h2>
+          <p className="text-lg text-brand-600 font-medium mb-3">
+            The institution pays. The individual receives LifeCTRL as part of their services.
+          </p>
+          <p className="text-calm-600 max-w-xl mx-auto mb-8">
+            Licensed to correctional facilities, re-entry programs, treatment centers,
+            universities, workforce programs, and social-service agencies.
+          </p>
+          <a
+            href="mailto:hello@lifectrl.com?subject=Institutional%20Access%20Inquiry"
+            className="btn-secondary text-sm px-6 py-3"
+          >
+            Interested in institutional access? Contact us
+          </a>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-gradient-to-b from-brand-500 to-accent-600 text-white">
         <div className="max-w-2xl mx-auto px-4 text-center space-y-6">
