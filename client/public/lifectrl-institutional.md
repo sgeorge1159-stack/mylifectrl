@@ -163,4 +163,4 @@ Existing tools are databases for staff. LifeCTRL is a personal assistant for the
 
 ## Contact
 
-For institutional inquiries: `hello@lifectrl.com`
+For institutional inquiries: `hello@mylifectrl.com`

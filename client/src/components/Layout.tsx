@@ -107,7 +107,7 @@ export default function Layout() {
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>
               <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms of Service</Link>
               <Link to="/privacy" className="hover:text-brand-600 transition-colors">Privacy Policy</Link>
-              <a href="mailto:hello@lifectrl.com" className="hover:text-brand-600 transition-colors">Contact</a>
+              <a href="mailto:hello@mylifectrl.com" className="hover:text-brand-600 transition-colors">Contact</a>
             </div>
           </div>
         </div>
