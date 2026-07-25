@@ -212,8 +212,8 @@ export default function Terms() {
               <h2 className="text-xl font-bold font-display text-calm-900 mb-3">11. Contact Information</h2>
               <p>
                 If you have any questions about these Terms, please contact us at{' '}
-                <a href="mailto:hello@lifectrl.com" className="text-brand-600 hover:text-brand-700 underline">
-                  hello@lifectrl.com
+                <a href="mailto:hello@mylifectrl.com" className="text-brand-600 hover:text-brand-700 underline">
+                  hello@mylifectrl.com
                 </a>.
               </p>
             </section>
@@ -233,7 +233,7 @@ export default function Terms() {
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>
               <Link to="/terms" className="hover:text-brand-600 transition-colors font-medium text-calm-700">Terms of Service</Link>
               <Link to="/privacy" className="hover:text-brand-600 transition-colors">Privacy Policy</Link>
-              <a href="mailto:hello@lifectrl.com" className="hover:text-brand-600 transition-colors">Contact</a>
+              <a href="mailto:hello@mylifectrl.com" className="hover:text-brand-600 transition-colors">Contact</a>
             </div>
           </div>
         </div>
