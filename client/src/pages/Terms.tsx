@@ -1,8 +1,21 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const LAST_UPDATED = '2026-07-21';
+const SEO_TITLE = 'Terms of Service — LifeCTRL™';
+const SEO_DESC =
+  'LifeCTRL™ Terms of Service. Read about account terms, subscriptions, intellectual property, acceptable use, and our no-professional-advice disclaimer.';
 
 export default function Terms() {
+  useEffect(() => {
+    document.title = SEO_TITLE;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', SEO_DESC);
+    return () => {
+      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
+      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+    };
+  }, []);
   return (
     <div className="min-h-screen flex flex-col bg-accent-50">
       {/* Header */}

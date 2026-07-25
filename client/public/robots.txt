@@ -1,0 +1,13 @@
+# LifeCTRL™ robots.txt — https://mylifectrl.com
+# Allow all crawlers; disallow authenticated/internal paths.
+
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /plans
+Disallow: /docs
+Disallow: /vault
+Disallow: /kits
+Disallow: /concierge
+
+Sitemap: https://mylifectrl.com/sitemap.xml
