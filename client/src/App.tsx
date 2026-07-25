@@ -4,6 +4,10 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
+import Reentry from './pages/Reentry';
+import Recovery from './pages/Recovery';
+import Campus from './pages/Campus';
+import Care from './pages/Care';
 import Dashboard from './pages/Dashboard';
 import Plans from './pages/Plans';
 import PlanDetail from './pages/PlanDetail';
@@ -25,6 +29,12 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/privacy" element={<Privacy />} />
+
+      {/* Institutional vertical pages */}
+      <Route path="/reentry" element={<Reentry />} />
+      <Route path="/recovery" element={<Recovery />} />
+      <Route path="/campus" element={<Campus />} />
+      <Route path="/care" element={<Care />} />
 
       {/* Protected routes — wrapped in auth guard + Layout */}
       <Route element={<ProtectedRoute />}>
