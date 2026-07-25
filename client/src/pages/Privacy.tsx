@@ -1,8 +1,21 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const LAST_UPDATED = '2026-07-22';
+const SEO_TITLE = 'Privacy Policy — LifeCTRL™ | GDPR, CCPA & HIPAA Compliance';
+const SEO_DESC =
+  'LifeCTRL™ Privacy Policy. Learn how we collect, use, and protect your data. GDPR, CCPA/CPRA, and HIPAA-aligned. No sale of personal information.';
 
 export default function Privacy() {
+  useEffect(() => {
+    document.title = SEO_TITLE;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', SEO_DESC);
+    return () => {
+      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
+      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+    };
+  }, []);
   return (
     <div className="min-h-screen flex flex-col bg-accent-50">
       {/* Header */}

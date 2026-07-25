@@ -1,7 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+const SEO_TITLE = 'Sign Up — LifeCTRL™ | Your AI Personal Chief of Staff';
+const SEO_DESC =
+  'Create your free LifeCTRL account and get a personalized action plan. Transform chaos into clarity with AI-powered life management.';
+
 export default function Signup() {
+  useEffect(() => {
+    document.title = SEO_TITLE;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', SEO_DESC);
+    return () => {
+      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
+      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+    };
+  }, []);
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

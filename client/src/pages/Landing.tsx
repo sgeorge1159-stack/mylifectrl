@@ -1,8 +1,18 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { STRIPE_LINKS, openPaymentLink } from '../config/payments';
 import BrandLogo from '../components/BrandLogo';
 
+const SEO_TITLE = 'LifeCTRL™ — Life\'s a lot. CTRL it. | Your AI Personal Chief of Staff';
+const SEO_DESC =
+  'LifeCTRL™ is your AI-powered personal chief of staff. Turn overwhelming life situations — job loss, finances, paperwork, moving — into clear, step-by-step action plans. Start for free.';
+
 export default function Landing() {
+  useEffect(() => {
+    document.title = SEO_TITLE;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', SEO_DESC);
+  }, []);
   return (
     <div className="min-h-screen flex flex-col">
       {/* Nav */}

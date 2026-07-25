@@ -1,7 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
+const SEO_TITLE = 'Log In — LifeCTRL™ | Your AI Personal Chief of Staff';
+const SEO_DESC =
+  'Log in to your LifeCTRL account and continue your personalized action plan. Your AI-powered personal chief of staff is ready.';
+
 export default function Login() {
+  useEffect(() => {
+    document.title = SEO_TITLE;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', SEO_DESC);
+    return () => {
+      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
+      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+    };
+  }, []);
   const navigate = useNavigate();
   const location = useLocation();
   const from = (location.state as any)?.from || '/dashboard';
