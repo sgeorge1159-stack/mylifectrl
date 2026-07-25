@@ -280,28 +280,70 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Institutional Access */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-100 text-accent-700 rounded-full text-sm font-medium mb-4">
-            On the Roadmap
-          </div>
-          <h2 className="text-3xl font-bold font-display text-calm-900 mb-3">
-            For Organizations
+      {/* Institutional Solutions */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm font-semibold uppercase tracking-widest text-calm-400">
+            Institutional Solutions
+          </p>
+          <h2 className="mt-2 text-3xl sm:text-4xl font-bold font-display text-calm-900 text-center">
+            LifeCTRL for organizations
           </h2>
-          <p className="text-lg text-brand-600 font-medium mb-3">
-            The institution pays. The individual receives LifeCTRL as part of their services.
+          <p className="mt-4 text-center text-calm-600 max-w-lg mx-auto">
+            Purpose-built verticals for the populations you serve. The institution pays.
+            The individual receives LifeCTRL as part of their services.
           </p>
-          <p className="text-calm-600 max-w-xl mx-auto mb-8">
-            Licensed to correctional facilities, re-entry programs, treatment centers,
-            universities, workforce programs, and social-service agencies.
-          </p>
-          <a
-            href="mailto:Stephanie.george9066@gmail.com?subject=Institutional%20Access%20Inquiry"
-            className="btn-secondary text-sm px-6 py-3"
-          >
-            Interested in institutional access? Contact us
-          </a>
+          <div className="mt-10 grid sm:grid-cols-2 gap-5">
+            {[
+              {
+                to: '/reentry',
+                badge: 'Re-entry',
+                badgeClass: 'bg-brand-50 text-brand-700',
+                headline: 'Reduce recidivism with technology.',
+                desc: 'AI-powered case management for returning citizens, corrections programs, and halfway houses.',
+              },
+              {
+                to: '/recovery',
+                badge: 'Recovery',
+                badgeClass: 'bg-accent-50 text-accent-700',
+                headline: 'Improve SUD treatment retention.',
+                desc: 'Patient engagement and behavioral health case management for addiction treatment programs.',
+              },
+              {
+                to: '/campus',
+                badge: 'Campus',
+                badgeClass: 'bg-calm-100 text-calm-700',
+                headline: 'Reduce administrative attrition.',
+                desc: 'Student success platform for universities and community colleges to keep students on track.',
+              },
+              {
+                to: '/care',
+                badge: 'Care',
+                badgeClass: 'bg-accent-50 text-accent-700',
+                headline: 'Reduce hospital readmissions.',
+                desc: 'Healthcare navigation and care coordination tools for patients, caregivers, and providers.',
+              },
+            ].map((s) => (
+              <Link
+                key={s.to}
+                to={s.to}
+                className="card border-calm-200 hover:border-brand-300 group"
+              >
+                <span className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${s.badgeClass}`}>
+                  {s.badge}
+                </span>
+                <h3 className="mt-4 text-xl font-bold text-calm-900 group-hover:text-brand-600 transition-colors">
+                  {s.headline}
+                </h3>
+                <p className="mt-2 text-sm text-calm-600">
+                  {s.desc}
+                </p>
+                <p className="mt-4 text-sm font-medium text-brand-600 group-hover:underline">
+                  Learn more →
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
