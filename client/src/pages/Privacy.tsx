@@ -197,7 +197,7 @@ export default function Privacy() {
                 <li><strong>Access and update:</strong> You can access and update your account information at any time
                   through your account settings.</li>
                 <li><strong>Data deletion:</strong> You may delete your account and associated data by contacting us at
-                  s.george1159@gmail.com. We will process your request within a reasonable timeframe.</li>
+                  legal@mylifectrl.com. We will process your request within a reasonable timeframe.</li>
                 <li><strong>Data export:</strong> Upon request, we can provide you with a copy of your personal data in
                   a machine-readable format.</li>
                 <li><strong>Communication preferences:</strong> You may opt out of non-essential communications by
@@ -231,7 +231,7 @@ export default function Privacy() {
                 You may request total account purging at any time. Executing this request triggers a cascading backend
                 deletion sequence that removes your user record and all associated data — including action plans, plan
                 tasks, task dependencies, and LifeVault contents — from our production database. To exercise this right,
-                contact us at s.george1159@gmail.com.
+                contact us at legal@mylifectrl.com.
               </p>
 
               <h3 className="text-lg font-semibold text-calm-800 mt-4 mb-2">8.3 Right to Access &amp; Portability (Articles 15 &amp; 20)</h3>
@@ -274,7 +274,7 @@ export default function Privacy() {
                 </li>
               </ul>
               <p className="mt-3">
-                To exercise your CCPA/CPRA rights, contact us at s.george1159@gmail.com. We will verify your identity
+                To exercise your CCPA/CPRA rights, contact us at legal@mylifectrl.com. We will verify your identity
                 before processing your request and respond within 45 calendar days as required by law.
               </p>
             </section>
@@ -308,7 +308,7 @@ export default function Privacy() {
               </ul>
               <p className="mt-3">
                 If you have specific questions about how health-related data is handled within your account, please
-                contact us at s.george1159@gmail.com.
+                contact us at legal@mylifectrl.com.
               </p>
             </section>
 
@@ -389,8 +389,8 @@ export default function Privacy() {
               <p>
                 If you have any questions, concerns, or requests regarding this Privacy Policy, our data practices, or
                 to exercise any of the rights described in this policy, please contact us at{' '}
-                <a href="mailto:s.george1159@gmail.com" className="text-brand-600 hover:text-brand-700 underline">
-                  s.george1159@gmail.com
+                <a href="mailto:legal@mylifectrl.com" className="text-brand-600 hover:text-brand-700 underline">
+                  legal@mylifectrl.com
                 </a>.
               </p>
             </section>
@@ -410,7 +410,7 @@ export default function Privacy() {
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>
               <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms of Service</Link>
               <Link to="/privacy" className="hover:text-brand-600 transition-colors font-medium text-calm-700">Privacy Policy</Link>
-              <a href="mailto:s.george1159@gmail.com" className="hover:text-brand-600 transition-colors">Contact</a>
+              <a href="mailto:hello@mylifectrl.com" className="hover:text-brand-600 transition-colors">Contact</a>
             </div>
           </div>
         </div>
