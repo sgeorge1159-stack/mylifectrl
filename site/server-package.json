@@ -1,0 +1,22 @@
+{
+  "name": "@lifectrl/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "PORT=3001 bun run --watch src/index.ts",
+    "build": "bun build src/index.ts --outdir dist --target bun",
+    "start": "PORT=3000 NODE_ENV=production bun run dist/index.js",
+    "db:migrate": "bun run src/db/migrate.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "hono": "^4.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "openai": "^6.48.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/bcryptjs": "^2.4.6"
+  }
+}
