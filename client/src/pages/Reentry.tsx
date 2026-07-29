@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BrandLogo from '../components/BrandLogo';
 
-const SEO_TITLE = 'CTRL Re-entry — AI-Powered Re-entry Programs for Returning Citizens | LifeCTRL';
+const SEO_TITLE = 'My Life CTRL | ReEntry — AI-Powered Re-entry Programs for Returning Citizens | MyCTRL';
 const SEO_DESC =
-  'LifeCTRL Re-entry transforms corrections case management with AI-powered personal organization. Reduce recidivism with technology that helps returning citizens navigate housing, employment, benefits, and parole requirements. Inquire about a re-entry program pilot.';
+  'MyCTRL Re-entry transforms corrections case management with AI-powered personal organization. Reduce recidivism with technology that helps returning citizens navigate housing, employment, benefits, and parole requirements. Inquire about a re-entry program pilot.';
 
 const stats = [
   { value: '600K+', label: 'People released from US prisons each year' },
@@ -28,8 +28,8 @@ export default function Reentry() {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', SEO_DESC);
     return () => {
-      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
-      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+      document.title = 'MyCTRL™ — Take CTRL of your life.';
+      if (meta) meta.setAttribute('content', 'MyCTRL™ — Take CTRL of your life. Your AI-powered personal chief of staff.');
     };
   }, []);
 
@@ -52,14 +52,14 @@ export default function Reentry() {
       <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-calm-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <span className="inline-block rounded-full bg-brand-400/20 px-3 py-1 text-sm font-medium text-brand-200">
-            LifeCTRL Re-entry
+            MyCTRL Re-entry
           </span>
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-tight">
             Returning citizens deserve more than a checklist.{' '}
             <span className="text-brand-300">They deserve a plan.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-brand-100/80">
-            LifeCTRL Re-entry gives returning citizens, corrections staff, and re-entry programs an
+            MyCTRL Re-entry gives returning citizens, corrections staff, and re-entry programs an
             AI-powered personal chief of staff — transforming scattered paperwork, appointments,
             and requirements into a clear, prioritized, step-by-step action plan.
           </p>
@@ -90,11 +90,11 @@ export default function Reentry() {
       {/* How it works */}
       <section className="py-20 bg-accent-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold font-display text-calm-900">How LifeCTRL Re-entry works</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold font-display text-calm-900">How MyCTRL Re-entry works</h2>
           <div className="mt-10 space-y-8">
             {[
               { step: '1', title: 'Upload what you have', desc: 'Returning citizens (or their case managers) upload scattered documents — release paperwork, parole conditions, court orders, housing applications, job referrals, treatment plans — as PDFs, screenshots, or photos.' },
-              { step: '2', title: 'AI builds the plan', desc: 'LifeCTRL extracts deadlines, requirements, and next steps. It builds a prioritized action plan with calendar reminders, document checklists, and jurisdiction-aware guidance.' },
+              { step: '2', title: 'AI builds the plan', desc: 'MyCTRL extracts deadlines, requirements, and next steps. It builds a prioritized action plan with calendar reminders, document checklists, and jurisdiction-aware guidance.' },
               { step: '3', title: 'Track progress, reduce chaos', desc: 'Case managers get a dashboard view across their caseload. Returning citizens see exactly what\'s next. Compliance goes up, recidivism risk goes down.' },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -150,7 +150,7 @@ export default function Reentry() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
             <div className="flex items-center gap-2">
               <span className="text-brand-500">◈</span>
-              <span>LifeCTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
+              <span>MyCTRL™ &copy; {new Date().getFullYear()} LifeCTRL LLC. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms of Service</Link>

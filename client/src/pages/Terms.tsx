@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const LAST_UPDATED = '2026-07-21';
-const SEO_TITLE = 'Terms of Service — LifeCTRL™';
+const SEO_TITLE = 'Terms of Service — MyCTRL™';
 const SEO_DESC =
-  'LifeCTRL™ Terms of Service. Read about account terms, subscriptions, intellectual property, acceptable use, and our no-professional-advice disclaimer.';
+  'MyCTRL™ Terms of Service. Read about account terms, subscriptions, intellectual property, acceptable use, and our no-professional-advice disclaimer.';
 
 export default function Terms() {
   useEffect(() => {
@@ -12,8 +12,8 @@ export default function Terms() {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', SEO_DESC);
     return () => {
-      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
-      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+      document.title = 'MyCTRL™ — Take CTRL of your life.';
+      if (meta) meta.setAttribute('content', 'MyCTRL™ — Take CTRL of your life. Your AI-powered personal chief of staff.');
     };
   }, []);
   return (
@@ -23,7 +23,7 @@ export default function Terms() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 text-xl font-bold text-calm-900 font-display">
             <span className="text-brand-500 text-2xl">◈</span>
-            LifeCTRL™
+            MyCTRL™
           </Link>
           <Link to="/" className="btn-ghost text-sm">← Back home</Link>
         </div>
@@ -43,7 +43,7 @@ export default function Terms() {
             <section>
               <h2 className="text-xl font-bold font-display text-calm-900 mb-3">1. Acceptance of Terms</h2>
               <p>
-                By accessing or using LifeCTRL™ (the "Service"), operated by LifeCTRL ("Company," "we," "us," or "our"),
+                By accessing or using MyCTRL™ (the "Service"), operated by LifeCTRL LLC ("Company," "we," "us," or "our"),
                 you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not
                 access or use the Service.
               </p>
@@ -71,13 +71,13 @@ export default function Terms() {
             <section>
               <h2 className="text-xl font-bold font-display text-calm-900 mb-3">3. Description of Service</h2>
               <p>
-                LifeCTRL™ is an AI-powered personal life management platform that provides action plans, document
+                MyCTRL™ is an AI-powered personal life management platform that provides action plans, document
                 organization, guided Life Kits, and related administrative tools (the "Service"). The Service is designed
                 to help users organize and manage personal life situations.
               </p>
               <p className="mt-3 font-semibold text-calm-900">Important Disclaimer — No Professional Advice:</p>
               <p className="mt-1">
-                LifeCTRL™ is an administrative and organizational tool. It does not provide legal advice, medical advice,
+                MyCTRL™ is an administrative and organizational tool. It does not provide legal advice, medical advice,
                 mental health services, financial advice, or any other licensed professional service. The action plans,
                 Life Kits, and AI-generated content are informational only. You should consult qualified professionals for
                 legal, medical, financial, or mental health matters.
@@ -240,7 +240,7 @@ export default function Terms() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
             <div className="flex items-center gap-2">
               <span className="text-brand-500">◈</span>
-              <span>LifeCTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
+              <span>MyCTRL™ &copy; {new Date().getFullYear()} LifeCTRL LLC. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>

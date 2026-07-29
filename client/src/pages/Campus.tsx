@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BrandLogo from '../components/BrandLogo';
 
-const SEO_TITLE = 'CTRL Campus — Student Success Platform to Reduce Administrative Attrition | LifeCTRL';
+const SEO_TITLE = 'My Life CTRL | Campus — Student Success Platform to Reduce Administrative Attrition | MyCTRL';
 const SEO_DESC =
-  'LifeCTRL Campus is a student success platform that reduces administrative attrition with AI-powered personal organization. Help students navigate financial aid, housing, registration, and campus resources. Inquire about a campus pilot.';
+  'MyCTRL Campus is a student success platform that reduces administrative attrition with AI-powered personal organization. Help students navigate financial aid, housing, registration, and campus resources. Inquire about a campus pilot.';
 
 const stats = [
   { value: '40%', label: 'Of college students who drop out cite administrative and financial hurdles — not academics' },
@@ -28,8 +28,8 @@ export default function Campus() {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', SEO_DESC);
     return () => {
-      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
-      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+      document.title = 'MyCTRL™ — Take CTRL of your life.';
+      if (meta) meta.setAttribute('content', 'MyCTRL™ — Take CTRL of your life. Your AI-powered personal chief of staff.');
     };
   }, []);
 
@@ -52,14 +52,14 @@ export default function Campus() {
       <section className="bg-gradient-to-br from-calm-900 via-calm-800 to-calm-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <span className="inline-block rounded-full bg-calm-400/30 px-3 py-1 text-sm font-medium text-calm-100">
-            LifeCTRL Campus
+            MyCTRL Campus
           </span>
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-tight">
             Students drop out for administrative reasons —{' '}
             <span className="text-brand-300">not academic ones.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-calm-200/80">
-            LifeCTRL Campus gives universities, community colleges, and student success teams an
+            MyCTRL Campus gives universities, community colleges, and student success teams an
             AI-powered personal chief of staff for every student — transforming financial aid forms,
             registration deadlines, housing applications, and campus resources into clear, prioritized
             action plans.
@@ -91,11 +91,11 @@ export default function Campus() {
       {/* How it works */}
       <section className="py-20 bg-accent-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold font-display text-calm-900">How LifeCTRL Campus works</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold font-display text-calm-900">How MyCTRL Campus works</h2>
           <div className="mt-10 space-y-8">
             {[
-              { step: '1', title: 'Onboard in minutes', desc: 'Students upload their financial aid letters, registration holds, housing contracts, and scholarship requirements. LifeCTRL builds a personalized semester action plan.' },
-              { step: '2', title: 'Never miss a deadline', desc: 'FAFSA deadlines, tuition payments, class registration windows, housing applications — LifeCTRL tracks every critical date and sends automated reminders.' },
+              { step: '1', title: 'Onboard in minutes', desc: 'Students upload their financial aid letters, registration holds, housing contracts, and scholarship requirements. MyCTRL builds a personalized semester action plan.' },
+              { step: '2', title: 'Never miss a deadline', desc: 'FAFSA deadlines, tuition payments, class registration windows, housing applications — MyCTRL tracks every critical date and sends automated reminders.' },
               { step: '3', title: 'Advisor visibility at scale', desc: 'Student success teams get dashboards showing which students are on track and which are at risk — enabling targeted outreach before a student silently withdraws.' },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -151,7 +151,7 @@ export default function Campus() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
             <div className="flex items-center gap-2">
               <span className="text-brand-500">◈</span>
-              <span>LifeCTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
+              <span>MyCTRL™ &copy; {new Date().getFullYear()} LifeCTRL LLC. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms of Service</Link>
