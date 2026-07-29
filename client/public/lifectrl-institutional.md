@@ -1,6 +1,6 @@
-# LifeCTRL™ Institutional — One-Pager
+# MyCTRL™ Institutional — One-Pager
 
-> The institution pays. The individual receives LifeCTRL as part of their services.
+> The institution pays. The individual receives MyCTRL as part of their services.
 
 ---
 
@@ -8,13 +8,13 @@
 
 Case managers are overloaded. Individuals fall through the cracks between appointments. The "case mgmt stuff that never gets done" — document tracking, deadline reminders, resource coordination, progress monitoring — is exactly where people fail.
 
-LifeCTRL doesn't replace case managers. It operationalizes the work **between** case-management contacts.
+MyCTRL doesn't replace case managers. It operationalizes the work **between** case-management contacts.
 
 ---
 
 ## How It Works
 
-1. Institution licenses LifeCTRL for their population
+1. Institution licenses MyCTRL for their population
 2. Individuals receive access as part of their program/services
 3. Each person describes their situation in plain English
 4. AI generates a personalized, prioritized action plan with tasks, deadlines, resources, and progress tracking
@@ -24,7 +24,7 @@ LifeCTRL doesn't replace case managers. It operationalizes the work **between** 
 
 ## Vertical Applications
 
-### LifeCTRL ReEntry (corrections, re-entry, halfway houses)
+### MyCTRL ReEntry (corrections, re-entry, halfway houses)
 
 **Example prompt:** *"I'm being released in 30 days. I need identification, housing, employment, Medicaid, probation reporting, transportation, and substance-use treatment."*
 
@@ -37,7 +37,7 @@ LifeCTRL doesn't replace case managers. It operationalizes the work **between** 
 
 Each task has a deadline, a resource link, and a category. Progress is trackable by both the individual and their case manager.
 
-### LifeCTRL Recovery (SUD/behavioral-health programs)
+### MyCTRL Recovery (SUD/behavioral-health programs)
 
 - Treatment intake timeline
 - Medication management schedule
@@ -46,7 +46,7 @@ Each task has a deadline, a resource link, and a category. Progress is trackable
 - Employment / disability benefits navigation
 - Relapse prevention plan with trigger tracking
 
-### LifeCTRL Campus (colleges/universities)
+### MyCTRL Campus (colleges/universities)
 
 - Academic planning and deadline tracking
 - Financial aid / FAFSA navigation
@@ -54,7 +54,7 @@ Each task has a deadline, a resource link, and a category. Progress is trackable
 - Mental health resource directory
 - Internship/career prep timeline
 
-### LifeCTRL Workforce (workforce-development programs)
+### MyCTRL Workforce (workforce-development programs)
 
 - Job readiness checklist
 - Resume and interview prep timeline
@@ -62,7 +62,7 @@ Each task has a deadline, a resource link, and a category. Progress is trackable
 - Transportation and childcare coordination
 - Benefits cliff management (transitioning off assistance)
 
-### LifeCTRL Care (healthcare/care navigation)
+### MyCTRL Care (healthcare/care navigation)
 
 - Appointment and medication tracking
 - Insurance claim organization
@@ -81,7 +81,7 @@ Each task has a deadline, a resource link, and a category. Progress is trackable
 | **Best for** | Nonprofits, small re-entry programs, community organizations |
 | **Seats** | Up to 50 active individuals |
 | **Price** | **$500/month** (≈$10/seat) |
-| **Includes** | Full LifeCTRL platform, 5 program-specific Life Kits, case manager dashboard, basic analytics |
+| **Includes** | Full MyCTRL platform, 5 program-specific Life Kits, case manager dashboard, basic analytics |
 | **Annual** | $5,000/year (save 17%) |
 
 ---
@@ -114,7 +114,7 @@ Each task has a deadline, a resource link, and a category. Progress is trackable
 
 | | |
 |---|---|
-| **Best for** | Organizations evaluating LifeCTRL before full commitment |
+| **Best for** | Organizations evaluating MyCTRL before full commitment |
 | **Duration** | 90 days |
 | **Seats** | Up to 100 individuals |
 | **Price** | **$2,500** (one-time) |
@@ -145,7 +145,7 @@ For Federal BOP, HHS, VA, state-level master contracts, or grant-funded programs
 ## FAQs for Institutional Buyers
 
 **Q: Does this replace our case managers?**
-No. LifeCTRL handles the routine administrative coordination between contacts. Case managers focus on high-value interventions.
+No. MyCTRL handles the routine administrative coordination between contacts. Case managers focus on high-value interventions.
 
 **Q: Is the data secure?**
 Yes. Each individual's LifeVault is encrypted. Data is never used for training or shared with third parties.
@@ -157,7 +157,7 @@ Plans can be printed. The institution's staff can input situations on behalf of 
 Yes. Institutions can create program-specific Life Kits with pre-built templates, required tasks, and local resource directories.
 
 **Q: How is this different from existing case management software?**
-Existing tools are databases for staff. LifeCTRL is a personal assistant for the individual — it meets them where they are, in their own words, and gives them a roadmap they can follow themselves.
+Existing tools are databases for staff. MyCTRL is a personal assistant for the individual — it meets them where they are, in their own words, and gives them a roadmap they can follow themselves.
 
 ---
 

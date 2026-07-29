@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BrandLogo from '../components/BrandLogo';
 
-const SEO_TITLE = 'CTRL Care — Healthcare Navigation Platform to Reduce Hospital Readmissions | LifeCTRL';
+const SEO_TITLE = 'CTRL Care — Healthcare Navigation Platform to Reduce Hospital Readmissions | MyCTRL';
 const SEO_DESC =
-  'LifeCTRL Care is a healthcare navigation platform that reduces hospital readmissions with AI-powered care coordination tools. Help patients manage discharge plans, appointments, medications, and benefits. Inquire about a care navigation pilot.';
+  'MyCTRL Care is a healthcare navigation platform that reduces hospital readmissions with AI-powered care coordination tools. Help patients manage discharge plans, appointments, medications, and benefits. Inquire about a care navigation pilot.';
 
 const stats = [
   { value: '20%', label: 'Of Medicare patients are readmitted within 30 days of discharge' },
@@ -28,8 +28,8 @@ export default function Care() {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', SEO_DESC);
     return () => {
-      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
-      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+      document.title = 'MyCTRL™ — Life\'s a lot. CTRL it.';
+      if (meta) meta.setAttribute('content', 'MyCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
     };
   }, []);
 
@@ -52,14 +52,14 @@ export default function Care() {
       <section className="bg-gradient-to-br from-accent-900 via-accent-700 to-brand-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <span className="inline-block rounded-full bg-accent-400/20 px-3 py-1 text-sm font-medium text-accent-200">
-            LifeCTRL Care
+            MyCTRL Care
           </span>
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-tight">
             The hardest part of healthcare is{' '}
             <span className="text-brand-300">what happens between visits.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-accent-100/80">
-            LifeCTRL Care gives patients, caregivers, and care coordination teams an AI-powered
+            MyCTRL Care gives patients, caregivers, and care coordination teams an AI-powered
             personal chief of staff — organizing discharge instructions, follow-up appointments,
             medication schedules, insurance paperwork, and home care into one clear action plan.
           </p>
@@ -90,11 +90,11 @@ export default function Care() {
       {/* How it works */}
       <section className="py-20 bg-accent-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold font-display text-calm-900">How LifeCTRL Care works</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold font-display text-calm-900">How MyCTRL Care works</h2>
           <div className="mt-10 space-y-8">
             {[
-              { step: '1', title: 'Discharge becomes a clear plan', desc: 'Patients or caregivers upload discharge papers, medication lists, and follow-up instructions. LifeCTRL builds a personalized post-discharge action plan with calendar appointments, medication reminders, and required next steps.' },
-              { step: '2', title: 'Bridge the follow-up gap', desc: 'Between discharge and the first follow-up appointment, LifeCTRL keeps patients on track — medication schedules, symptom monitoring, specialist referrals, and home care instructions all organized and tracked.' },
+              { step: '1', title: 'Discharge becomes a clear plan', desc: 'Patients or caregivers upload discharge papers, medication lists, and follow-up instructions. MyCTRL builds a personalized post-discharge action plan with calendar appointments, medication reminders, and required next steps.' },
+              { step: '2', title: 'Bridge the follow-up gap', desc: 'Between discharge and the first follow-up appointment, MyCTRL keeps patients on track — medication schedules, symptom monitoring, specialist referrals, and home care instructions all organized and tracked.' },
               { step: '3', title: 'Care team visibility', desc: 'Care coordinators, social workers, and family caregivers get dashboards showing patient adherence, missed appointments, medication compliance, and readmission risk — enabling proactive intervention.' },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -150,7 +150,7 @@ export default function Care() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
             <div className="flex items-center gap-2">
               <span className="text-brand-500">◈</span>
-              <span>LifeCTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
+              <span>MyCTRL™ &copy; {new Date().getFullYear()} LifeCTRL LLC. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms of Service</Link>

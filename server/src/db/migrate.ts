@@ -1,4 +1,4 @@
-// Database migration — creates all tables for LifeCTRL
+// Database migration — creates all tables for MyCTRL
 // Adapted from the production PostgreSQL schema to SQLite.
 // PostgreSQL migration path: switch to UUID PKs, ENUM types, JSONB, and enable RLS.
 import { Database } from 'bun:sqlite';

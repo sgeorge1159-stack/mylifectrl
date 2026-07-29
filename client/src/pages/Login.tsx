@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-const SEO_TITLE = 'Log In — LifeCTRL™ | Your AI Personal Chief of Staff';
+const SEO_TITLE = 'Log In — MyCTRL™ | Your AI Personal Chief of Staff';
 const SEO_DESC =
-  'Log in to your LifeCTRL account and continue your personalized action plan. Your AI-powered personal chief of staff is ready.';
+  'Log in to your MyCTRL account and continue your personalized action plan. Your AI-powered personal chief of staff is ready.';
 
 export default function Login() {
   useEffect(() => {
@@ -11,8 +11,8 @@ export default function Login() {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', SEO_DESC);
     return () => {
-      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
-      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+      document.title = 'MyCTRL™ — Take CTRL of your life.';
+      if (meta) meta.setAttribute('content', 'MyCTRL™ — Take CTRL of your life. Your AI-powered personal chief of staff.');
     };
   }, []);
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ export default function Login() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 text-2xl font-bold font-display text-calm-900">
-            <span className="text-brand-500">◈</span> LifeCTRL
+            <span className="text-brand-500">◈</span> MyCTRL
           </Link>
           <h1 className="mt-4 text-2xl font-bold text-calm-900">Welcome back</h1>
           <p className="mt-2 text-calm-600">Log in to continue your journey.</p>

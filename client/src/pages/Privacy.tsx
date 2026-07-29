@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const LAST_UPDATED = '2026-07-22';
-const SEO_TITLE = 'Privacy Policy — LifeCTRL™ | GDPR, CCPA & HIPAA Compliance';
+const SEO_TITLE = 'Privacy Policy — MyCTRL™ | GDPR, CCPA & HIPAA Compliance';
 const SEO_DESC =
-  'LifeCTRL™ Privacy Policy. Learn how we collect, use, and protect your data. GDPR, CCPA/CPRA, and HIPAA-aligned. No sale of personal information.';
+  'MyCTRL™ Privacy Policy. Learn how we collect, use, and protect your data. GDPR, CCPA/CPRA, and HIPAA-aligned. No sale of personal information.';
 
 export default function Privacy() {
   useEffect(() => {
@@ -12,8 +12,8 @@ export default function Privacy() {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', SEO_DESC);
     return () => {
-      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
-      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+      document.title = 'MyCTRL™ — Life\'s a lot. CTRL it.';
+      if (meta) meta.setAttribute('content', 'MyCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
     };
   }, []);
   return (
@@ -23,7 +23,7 @@ export default function Privacy() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 text-xl font-bold text-calm-900 font-display">
             <span className="text-brand-500 text-2xl">◈</span>
-            LifeCTRL™
+            MyCTRL™
           </Link>
           <Link to="/" className="btn-ghost text-sm">← Back home</Link>
         </div>
@@ -43,8 +43,8 @@ export default function Privacy() {
             <section>
               <h2 className="text-xl font-bold font-display text-calm-900 mb-3">1. Introduction</h2>
               <p>
-                LifeCTRL ("Company," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy
-                explains how we collect, use, disclose, and safeguard your information when you use the LifeCTRL™ platform
+                LifeCTRL LLC ("Company," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy
+                explains how we collect, use, disclose, and safeguard your information when you use the MyCTRL™ platform
                 (the "Service"). By using the Service, you agree to the collection and use of information in accordance
                 with this policy.
               </p>
@@ -63,7 +63,7 @@ export default function Privacy() {
               <p>We collect information you voluntarily provide when you create an account or use the Service, including:</p>
               <ul className="list-disc ml-6 mt-2 space-y-1">
                 <li><strong>Account information:</strong> Your name, email address, and password (hashed).</li>
-                <li><strong>Institutional affiliation:</strong> If you access LifeCTRL through an institutional partner
+                <li><strong>Institutional affiliation:</strong> If you access MyCTRL through an institutional partner
                   (e.g., re-entry program, university, employer), we may receive your name, email, and affiliation status
                   from that partner.</li>
                 <li><strong>Life Kit inputs:</strong> Information you provide when describing your situation to generate
@@ -133,7 +133,7 @@ export default function Privacy() {
                   </a>. By using our paid services, you agree to Stripe's terms and privacy practices.
                 </li>
                 <li>
-                  <strong>Institutional partners:</strong> If you access LifeCTRL through an institutional partner (e.g.,
+                  <strong>Institutional partners:</strong> If you access MyCTRL through an institutional partner (e.g.,
                   re-entry program, university, employer), we may share aggregated or de-identified usage data with that
                   partner. We will not share the specific contents of your action plans or uploaded documents with
                   institutional partners without your explicit consent, except as required by law.
@@ -189,14 +189,14 @@ export default function Privacy() {
 
               <h3 className="text-lg font-semibold text-calm-800 mt-4 mb-2">6.1 Security Incident Response &amp; Breach Notification</h3>
               <p>
-                In the event of a suspected or confirmed data breach, LifeCTRL maintains an immediate mitigation playbook:
+                In the event of a suspected or confirmed data breach, LifeCTRL LLC maintains an immediate mitigation playbook:
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-1">
                 <li><strong>Isolation:</strong> The API Gateway instantly revokes compromised routing tokens and rotates
                   all database private network passwords.</li>
                 <li><strong>Assessment:</strong> Our technical team calculates the exact extent of row-level exposure by
                   reviewing database access tracking logs.</li>
-                <li><strong>Notification:</strong> If your personal data is impacted, LifeCTRL will notify regulatory
+                <li><strong>Notification:</strong> If your personal data is impacted, LifeCTRL LLC will notify regulatory
                   bodies and affected users via email within <strong>72 hours</strong> of breach confirmation, in
                   compliance with GDPR Article 33.</li>
               </ul>
@@ -224,7 +224,7 @@ export default function Privacy() {
             <section>
               <h2 className="text-xl font-bold font-display text-calm-900 mb-3">8. GDPR Compliance (EU/EEA Users)</h2>
               <p>
-                LifeCTRL processes personal data of individuals in the European Union and European Economic Area in
+                LifeCTRL LLC processes personal data of individuals in the European Union and European Economic Area in
                 accordance with the General Data Protection Regulation (GDPR).
               </p>
 
@@ -259,12 +259,12 @@ export default function Privacy() {
             <section>
               <h2 className="text-xl font-bold font-display text-calm-900 mb-3">9. CCPA/CPRA Compliance (California Residents)</h2>
               <p>
-                LifeCTRL complies with the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act
+                LifeCTRL LLC complies with the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act
                 (CPRA). California residents have the following specific rights:
               </p>
               <ul className="list-disc ml-6 mt-2 space-y-1">
                 <li>
-                  <strong>No Sale of Data:</strong> LifeCTRL explicitly asserts that it <strong>does not sell, rent, or
+                  <strong>No Sale of Data:</strong> LifeCTRL LLC explicitly asserts that it <strong>does not sell, rent, or
                   share</strong> user narratives, transactional records, or profile attributes with third-party data
                   brokers or advertisement networks. We do not monetize your personal information.
                 </li>
@@ -296,7 +296,7 @@ export default function Privacy() {
             <section>
               <h2 className="text-xl font-bold font-display text-calm-900 mb-3">10. Health-Related Data &amp; HIPAA Safeguards</h2>
               <p>
-                LifeCTRL is a general-purpose strategic planning tool and is not a covered entity under the Health
+                LifeCTRL LLC is a general-purpose strategic planning tool and is not a covered entity under the Health
                 Insurance Portability and Accountability Act (HIPAA). However, we recognize that users may choose to
                 input medical or health-related information into their personal narratives and action plans.
               </p>
@@ -335,7 +335,7 @@ export default function Privacy() {
               </p>
               <p className="mt-3">
                 Data transfers outside the European Economic Area (EEA) rely on Standard Contractual Clauses (SCCs)
-                embedded within our infrastructure vendor agreements. LifeCTRL strictly vectors data processing only
+                embedded within our infrastructure vendor agreements. LifeCTRL LLC strictly vectors data processing only
                 through vetted, compliant subprocessors:
               </p>
 
@@ -417,7 +417,7 @@ export default function Privacy() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
             <div className="flex items-center gap-2">
               <span className="text-brand-500">◈</span>
-              <span>LifeCTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
+              <span>MyCTRL™ &copy; {new Date().getFullYear()} LifeCTRL LLC. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/" className="hover:text-brand-600 transition-colors">Home</Link>

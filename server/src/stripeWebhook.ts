@@ -1,5 +1,5 @@
 /**
- * LifeCTRL SaaS — Stripe Webhook Integration
+ * MyCTRL SaaS — Stripe Webhook Integration
  * Monetization Bus → Core Database Synchronization
  *
  * Security: Cryptographic Webhook Signature Verification

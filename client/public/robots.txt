@@ -1,4 +1,4 @@
-# LifeCTRL™ robots.txt — https://mylifectrl.com
+# MyCTRL™ robots.txt — https://mylifectrl.com
 # Allow all crawlers; disallow authenticated/internal paths.
 
 User-agent: *

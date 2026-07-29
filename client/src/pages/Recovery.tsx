@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BrandLogo from '../components/BrandLogo';
 
-const SEO_TITLE = 'CTRL Recovery — SUD Treatment Patient Engagement & Behavioral Health Case Management | LifeCTRL';
+const SEO_TITLE = 'CTRL Recovery — SUD Treatment Patient Engagement & Behavioral Health Case Management | MyCTRL';
 const SEO_DESC =
-  'LifeCTRL Recovery improves addiction treatment patient retention with AI-powered personal organization and behavioral health case management tools. Help patients navigate recovery, appointments, housing, and benefits. Inquire about a recovery program pilot.';
+  'MyCTRL Recovery improves addiction treatment patient retention with AI-powered personal organization and behavioral health case management tools. Help patients navigate recovery, appointments, housing, and benefits. Inquire about a recovery program pilot.';
 
 const stats = [
   { value: '50%', label: 'Of patients drop out of SUD treatment within 90 days — often due to administrative barriers' },
@@ -28,8 +28,8 @@ export default function Recovery() {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', SEO_DESC);
     return () => {
-      document.title = 'LifeCTRL™ — Life\'s a lot. CTRL it.';
-      if (meta) meta.setAttribute('content', 'LifeCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
+      document.title = 'MyCTRL™ — Life\'s a lot. CTRL it.';
+      if (meta) meta.setAttribute('content', 'MyCTRL™ — Life\'s a lot. CTRL it. Your AI-powered personal chief of staff.');
     };
   }, []);
 
@@ -52,14 +52,14 @@ export default function Recovery() {
       <section className="bg-gradient-to-br from-accent-900 via-accent-800 to-calm-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <span className="inline-block rounded-full bg-accent-400/20 px-3 py-1 text-sm font-medium text-accent-200">
-            LifeCTRL Recovery
+            MyCTRL Recovery
           </span>
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-tight">
             Recovery is hard enough.{' '}
             <span className="text-accent-300">The paperwork shouldn't make it harder.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-accent-100/80">
-            LifeCTRL Recovery gives treatment programs, behavioral health providers, and individuals in
+            MyCTRL Recovery gives treatment programs, behavioral health providers, and individuals in
             recovery an AI-powered personal chief of staff — organizing appointments, treatment plans,
             housing paperwork, and benefits into one clear, prioritized action plan.
           </p>
@@ -90,11 +90,11 @@ export default function Recovery() {
       {/* How it works */}
       <section className="py-20 bg-accent-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold font-display text-calm-900">How LifeCTRL Recovery works</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold font-display text-calm-900">How MyCTRL Recovery works</h2>
           <div className="mt-10 space-y-8">
             {[
-              { step: '1', title: 'Intake becomes action', desc: 'Treatment intake paperwork, insurance documents, medication schedules, and referral letters are uploaded. LifeCTRL organizes everything and builds a personalized recovery action plan.' },
-              { step: '2', title: 'Stay on track between sessions', desc: 'Between therapy and treatment sessions, LifeCTRL keeps patients engaged with appointment reminders, medication schedules, meeting locations, and progress check-ins — reducing the dropout risk.' },
+              { step: '1', title: 'Intake becomes action', desc: 'Treatment intake paperwork, insurance documents, medication schedules, and referral letters are uploaded. MyCTRL organizes everything and builds a personalized recovery action plan.' },
+              { step: '2', title: 'Stay on track between sessions', desc: 'Between therapy and treatment sessions, MyCTRL keeps patients engaged with appointment reminders, medication schedules, meeting locations, and progress check-ins — reducing the dropout risk.' },
               { step: '3', title: 'Program-wide visibility', desc: 'Clinical directors and case managers get dashboards showing patient engagement, missed appointments, and at-risk individuals — enabling proactive intervention before someone drops out.' },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -150,7 +150,7 @@ export default function Recovery() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-calm-500">
             <div className="flex items-center gap-2">
               <span className="text-brand-500">◈</span>
-              <span>LifeCTRL™ &copy; {new Date().getFullYear()}. All rights reserved.</span>
+              <span>MyCTRL™ &copy; {new Date().getFullYear()} LifeCTRL LLC. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-4">
               <Link to="/terms" className="hover:text-brand-600 transition-colors">Terms of Service</Link>
