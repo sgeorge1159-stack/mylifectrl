@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { STRIPE_LINKS, openPaymentLink } from '../config/payments';
 import BrandLogo from '../components/BrandLogo';
 
-const SEO_TITLE = 'MyCTRL™ — Life\'s a lot. CTRL it. | Your AI Personal Chief of Staff';
+const SEO_TITLE = 'MyCTRL™ — Take CTRL of your life. | Your AI Personal Chief of Staff';
 const SEO_DESC =
   'MyCTRL™ is your AI-powered personal chief of staff. Turn overwhelming life situations — job loss, finances, paperwork, moving — into clear, step-by-step action plans. Start for free.';
 
@@ -37,8 +37,8 @@ export default function Landing() {
                 <span>✦</span> Your AI-powered personal chief of staff
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-calm-900 leading-tight">
-                Life's a lot.
-                <br /><span className="text-brand-500 font-mono bg-brand-50/90 px-2 py-0.5 rounded-md border border-brand-200 shadow-sm inline-block">CTRL</span> it.
+                Take
+                <br /><span className="text-brand-500 font-mono bg-brand-50/90 px-2 py-0.5 rounded-md border border-brand-200 shadow-sm inline-block">CTRL</span> of your life.
               </h1>
               <p className="text-lg sm:text-xl text-calm-600 max-w-lg">
                 MyCTRL™ transforms chaos into clarity. Describe your situation — job loss, moving,
