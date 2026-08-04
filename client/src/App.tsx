@@ -8,6 +8,7 @@ import Reentry from './pages/Reentry';
 import Recovery from './pages/Recovery';
 import Campus from './pages/Campus';
 import Care from './pages/Care';
+import Ability from './pages/Ability';
 import Dashboard from './pages/Dashboard';
 import Plans from './pages/Plans';
 import PlanDetail from './pages/PlanDetail';
@@ -35,6 +36,7 @@ export default function App() {
       <Route path="/recovery" element={<Recovery />} />
       <Route path="/campus" element={<Campus />} />
       <Route path="/care" element={<Care />} />
+      <Route path="/ability" element={<Ability />} />
 
       {/* Protected routes — wrapped in auth guard + Layout */}
       <Route element={<ProtectedRoute />}>

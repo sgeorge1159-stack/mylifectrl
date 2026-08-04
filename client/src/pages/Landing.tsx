@@ -303,7 +303,7 @@ export default function Landing() {
             Purpose-built verticals for the populations you serve. The institution pays.
             The individual receives MyCTRL as part of their services.
           </p>
-          <div className="mt-10 grid sm:grid-cols-2 gap-5">
+          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
                 to: '/reentry',
@@ -332,6 +332,13 @@ export default function Landing() {
                 badgeClass: 'bg-accent-50 text-accent-700',
                 headline: 'Reduce hospital readmissions.',
                 desc: 'Healthcare navigation and care coordination tools for patients, caregivers, and providers.',
+              },
+              {
+                to: '/ability',
+                badge: 'Ability',
+                badgeClass: 'bg-brand-50 text-brand-700',
+                headline: 'Make IDD & autism services manageable.',
+                desc: 'AI-powered support for individuals with intellectual/developmental disabilities, autism, and the organizations that serve them.',
               },
             ].map((s) => (
               <Link

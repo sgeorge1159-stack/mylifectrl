@@ -515,6 +515,141 @@ export function seedKits(db: Database): void {
           'Tax professionals recommend keeping tax returns and supporting documents for 7 years, not 3. The IRS can audit up to 6 years back if they suspect substantial underreporting.'
         ]
       })
+    },
+    {
+      title: 'IDD & Autism Support Kit',
+      description: 'Navigate the IDD service system with confidence — from diagnosis and IEPs through waiver applications, adult services, and lifelong planning. Built for individuals with intellectual/developmental disabilities, autism, and their families.',
+      category: 'care',
+      price_cents: 4900,
+      content: kit({
+        overview: "Navigating the IDD service system is one of the most administratively complex challenges any family can face. Waiver waitlists, IEP meetings, benefits that change at 18 and again at 21, provider shortages, guardianship decisions — and decades of coordinating medical, educational, residential, and employment services across multiple agencies. This kit provides structure across the lifespan, from diagnosis through adulthood, covering the administrative tasks, deadlines, and documentation that families and individuals need to stay organized.",
+        steps: [
+          {
+            order: 1,
+            title: 'Understand the Diagnosis and Your Rights',
+            description: "Whether the diagnosis is new or you're revisiting an existing one, start by understanding what it means for services. Different programs have different eligibility criteria — some require an IQ score, others an autism diagnosis, others a functional assessment. Request a comprehensive evaluation from a qualified professional (developmental pediatrician, psychologist, neuropsychologist) and know your rights under IDEA (education) and the ADA (discrimination).",
+            resources: ['https://www.parentcenterhub.org/', 'https://www.autismspeaks.org/resource-guide']
+          },
+          {
+            order: 2,
+            title: 'Early Intervention Services (Birth–3)',
+            description: 'If the individual is under 3, federal law requires states to provide early intervention services. Contact your state\'s Early Intervention program (Part C of IDEA) — services are typically free or sliding-scale and include speech therapy, occupational therapy, physical therapy, and developmental support, often delivered in the home.',
+            resources: ['https://www.cdc.gov/ncbddd/actearly/parents/state-text.html', 'https://ectacenter.org/contact/contacts.asp']
+          },
+          {
+            order: 3,
+            title: 'Build the Medical Team',
+            description: 'IDD often comes with co-occurring medical needs — epilepsy, GI issues, sleep disorders, anxiety. Find providers who accept your insurance and have experience with your specific diagnosis. Start a medical binder (physical or digital via MyCTRL LifeVault) with diagnosis documentation, medication list, specialist contacts, appointment history, and test results — you will need this documentation repeatedly.',
+            resources: []
+          },
+          {
+            order: 4,
+            title: 'Secure Special Education Services (Ages 3–21)',
+            description: 'Request an evaluation for an IEP (Individualized Education Program) or 504 Plan in writing — the school has 60 days to evaluate. An IEP provides specialized instruction and related services; a 504 Plan provides accommodations. Bring documentation, an advocate if possible, and a written list of concerns to every meeting, and know that you can request an IEP meeting at any time, not just annually.',
+            resources: ['https://www.understood.org/', 'https://www.wrightslaw.com/', 'https://www.ndrn.org/']
+          },
+          {
+            order: 5,
+            title: 'Navigate the Transition IEP (Starting at Age 14–16)',
+            description: 'By law, the IEP must include a transition plan starting no later than age 16 (some states require 14), covering post-secondary education, employment, independent living skills, and community participation. Invite vocational rehabilitation and adult service agencies to transition IEP meetings. The goal: a warm handoff from school-based services to adult services with no gap — apply for adult services BEFORE graduation, since some waivers have years-long waitlists.',
+            resources: ['https://rsa.ed.gov/']
+          },
+          {
+            order: 6,
+            title: 'Manage the Administrative Load of School Years',
+            description: 'Between IEP meetings, therapy appointments, specialist visits, medication refills, and insurance approvals, the administrative load is enormous. Create a master calendar and track every evaluation, meeting, and authorization. Build a document index — IEPs, evaluations, medical records, correspondence with the school district — because you will reference these for years.',
+            resources: []
+          },
+          {
+            order: 7,
+            title: 'Apply for Medicaid and Waiver Programs',
+            description: 'This is the most critical — and most confusing — step. Medicaid provides healthcare; waivers (Home and Community-Based Services, or HCBS) provide residential services, day programs, employment supports, respite care, behavioral support, and more. Each state has different waivers with different names and waitlists — apply for every waiver the individual may qualify for, and apply early: some states have 10+ year waitlists that are first-come, first-served.',
+            resources: ['https://www.medicaid.gov/', 'https://www.kff.org/']
+          },
+          {
+            order: 8,
+            title: 'Apply for SSI/SSDI',
+            description: 'Supplemental Security Income (SSI) provides monthly cash benefits for individuals with disabilities and limited income/resources; Disabled Adult Child (DAC) benefits through SSDI are available if a parent is disabled, retired, or deceased. SSI applications require detailed medical and functional documentation, and most initial applications are denied — don\'t give up; the appeal process is normal. Applications take 3–6 months, so start early, especially before school services end.',
+            resources: ['https://www.ssa.gov/benefits/disability/']
+          },
+          {
+            order: 9,
+            title: 'Guardianship and Decision-Making Planning',
+            description: 'When the individual turns 18, parents lose automatic legal decision-making authority in every state. Plan ahead: options range from full guardianship to supported decision-making, and families should consider medical, financial, residential, and educational decisions with an attorney specializing in disability law. Many families also establish a Special Needs Trust to protect assets without jeopardizing benefits — begin this process at least 6–12 months before the 18th birthday.',
+            resources: ['https://www.supporteddecisionmaking.org/']
+          },
+          {
+            order: 10,
+            title: 'Coordinate Residential and Day Services',
+            description: 'Whether the individual lives at home, in a group home, in supported living, or independently, every service requires separate documentation, provider selection, and ongoing oversight. Residential services include housing placement, in-home support, personal care assistance, and transportation; day services include day habilitation, community integration, and structured routines. Visit providers in person and talk to other families before choosing.',
+            resources: []
+          },
+          {
+            order: 11,
+            title: 'Employment and Meaningful Day Activities',
+            description: 'Vocational Rehabilitation (VR) can fund job training, job coaching, assistive technology, and supported employment. Explore competitive employment with job coaching, customized employment, supported employment through a community rehabilitation provider, and self-employment or microenterprise options — plus volunteer work and community-based day programs for meaningful engagement if employment isn\'t the immediate goal.',
+            resources: ['https://rsa.ed.gov/', 'https://www.apse.org/', 'https://thearc.org/']
+          },
+          {
+            order: 12,
+            title: 'Healthcare Transition and Ongoing Medical Management',
+            description: 'Transitioning from pediatric to adult healthcare is harder with IDD. Find adult providers who understand the diagnosis and create a one-page medical summary with diagnosis, medications, specialists, and key history. Coordinate across primary care, neurology, psychiatry, GI, dental (often overlooked and critical), and other specialists, and set up medication management systems while tracking insurance authorizations and renewals.',
+            resources: ['https://www.gottransition.org/']
+          },
+          {
+            order: 13,
+            title: 'Build the Long-Term Plan',
+            description: 'A comprehensive long-term plan includes living arrangements, financial planning (Special Needs Trust, ABLE account), healthcare directives, and a letter of intent — a non-binding document that tells future caregivers everything they need to know about the individual\'s preferences, routines, medical history, and contacts. Include an emergency backup plan for who steps in if the primary caregiver is unavailable, and review and update the whole plan annually.',
+            resources: ['https://www.ablenrc.org/', 'https://futureplanning.thearc.org/']
+          },
+          {
+            order: 14,
+            title: 'Emergency and Crisis Planning',
+            description: 'Individuals with IDD are at higher risk during emergencies — medical crises, natural disasters, caregiver illness. Create an emergency contact list, a one-page medical summary, a go-bag checklist, and a written plan for who provides care if the primary caregiver is unavailable. Register with your local special needs registry if available, and include behavioral triggers and calming strategies in the plan — first responders need to know.',
+            resources: ['https://www.ready.gov/disability']
+          }
+        ],
+        checklist: [
+          'Comprehensive diagnostic evaluation obtained',
+          'Early Intervention or school evaluation requested (if applicable)',
+          'Medical team established and contact list created',
+          'IEP or 504 Plan in place with current evaluations',
+          'Transition plan in IEP (if age 14–16+)',
+          'Medicaid application submitted',
+          'All relevant HCBS waivers applied for — confirm name and waitlist status for each',
+          'SSI/SSDI application submitted',
+          'Guardianship or supported decision-making plan decided (before age 18)',
+          'Special Needs Trust or ABLE account evaluated',
+          'Residential/day service providers researched and visited',
+          'Vocational Rehabilitation intake completed',
+          'Healthcare transition plan in progress (if approaching adulthood)',
+          'Medical summary / one-pager created',
+          'Letter of intent drafted for future caregivers',
+          'Emergency/crisis plan in place',
+          'All documents stored and organized in LifeVault'
+        ],
+        templates: [
+          { name: 'IEP Meeting Prep Sheet', description: 'Questions to ask, documentation to bring, and goals to discuss at every IEP meeting.' },
+          { name: 'Medical Summary Template', description: 'One-page snapshot of diagnosis, medications, specialists, and history for new providers and emergencies.' },
+          { name: 'Provider Contact Index', description: 'Track specialists, therapists, case managers, and agency contacts in one organized place.' },
+          { name: 'Waiver Application Tracker', description: 'Which waivers were applied for, when, current status, and follow-up needed for each.' },
+          { name: 'Letter of Intent Template', description: 'Document everything a future caregiver needs to know about the individual.' },
+          { name: 'Emergency Go-Bag Checklist', description: 'What to pack, who to call, and what documents to have ready in a crisis.' },
+          { name: 'Annual Review Calendar', description: 'Recurring deadlines: IEP reviews, benefits renewal, medical appointments, and waiver reviews.' }
+        ],
+        tips: [
+          'Apply for everything early. Waiver waitlists can be 10+ years — apply the moment there\'s any chance of eligibility.',
+          'Document everything. Every phone call, every evaluation, every denial letter. You will need the paper trail.',
+          'Find your people. Local parent support groups, state disability organizations, and online communities know things no official source will tell you — like which providers are actually good and which waiver has a shorter waitlist.',
+          'Know the cliff. At 18, educational rights transfer. At 21, school services end. Plan transitions 2–3 years in advance, not months.',
+          'The squeaky wheel gets the grease. Follow up on everything — waiver applications, IEP requests, SSI appeals. Persistence is part of the process.',
+          'Special Needs Trusts and ABLE accounts serve different purposes. A SNT protects assets without affecting benefits; an ABLE account allows tax-advantaged savings for disability expenses. Many families need both.',
+          'Behavioral health is part of IDD care. Anxiety, depression, and challenging behaviors are common — integrated care matters, so don\'t let the IDD system and the mental health system operate in silos.',
+          'Plan for the caregiver, too. Respite care, sibling involvement, and long-term caregiving plans are not optional — they\'re essential.',
+          'State Protection & Advocacy agencies are free. Every state has one — they can help with IEP disputes, denial of services, and civil rights violations.',
+          'This is a marathon. The administrative load doesn\'t end. Build systems that work for the long haul — that\'s what MyCTRL is for.'
+        ]
+      })
     }
   ];
 
