@@ -364,7 +364,7 @@ export default function Landing() {
             From "I don't know where to start" to "I know exactly what to do next."
           </h2>
           <p className="text-brand-100 text-lg">
-            Join thousands who've turned overwhelming life situations into clear, confident action.
+            Ready to turn overwhelming life situations into clear, confident action?
           </p>
           <Link to="/signup" className="inline-block px-8 py-4 bg-white text-brand-600 font-bold rounded-xl text-lg hover:shadow-xl transition-all duration-200 active:scale-[0.98]">
             Get started — it's free
