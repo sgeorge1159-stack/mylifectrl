@@ -14,6 +14,7 @@ interface PlanSummary {
 
 export default function Plans() {
   const [situation, setSituation] = useState('');
+  const [focusAreas, setFocusAreas] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [plans, setPlans] = useState<PlanSummary[]>([]);
@@ -55,12 +56,17 @@ export default function Plans() {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ situation: situation.trim() }),
+        body: JSON.stringify({
+          situation: focusAreas.length
+            ? `${situation.trim()}\n\nAreas I may need help with: ${focusAreas.join(', ')}.`
+            : situation.trim(),
+        }),
       });
       const data = await res.json();
 
       if (data.ok) {
         setSituation('');
+        setFocusAreas([]);
         await fetchPlans();
       } else {
         setError(data.error || 'Failed to generate plan. Please try again.');
@@ -111,11 +117,31 @@ export default function Plans() {
           <textarea
             value={situation}
             onChange={(e) => setSituation(e.target.value)}
-            className="input-field min-h-[120px] resize-y text-base"
-            placeholder="Tell me what you're dealing with — job loss, moving, financial changes, paperwork, anything..."
+            className="input-field min-h-[160px] resize-y text-base"
+            placeholder="Tell us what's going on. What do you need help with?"
             required
             disabled={loading}
+            aria-label="Describe what's going on"
           />
+          <fieldset disabled={loading}>
+            <legend className="text-sm font-medium text-calm-700 mb-2">Are you dealing with...</legend>
+            <div className="flex flex-wrap gap-2">
+              {['Housing', 'Job loss', 'Benefits', 'Legal', 'Medical', 'Other'].map((area) => {
+                const selected = focusAreas.includes(area);
+                return (
+                  <label key={area} className={`cursor-pointer rounded-full border px-3 py-2 text-sm transition-colors ${selected ? 'border-brand-400 bg-brand-50 text-brand-700' : 'border-calm-200 bg-white text-calm-600 hover:border-brand-300'}`}>
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      checked={selected}
+                      onChange={() => setFocusAreas((current) => selected ? current.filter((item) => item !== area) : [...current, area])}
+                    />
+                    {area}
+                  </label>
+                );
+              })}
+            </div>
+          </fieldset>
           {error && (
             <div className="p-3 bg-red-50 text-red-700 rounded-xl text-sm">{error}</div>
           )}

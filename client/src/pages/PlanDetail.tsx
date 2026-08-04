@@ -135,6 +135,17 @@ export default function PlanDetail() {
   const completedCount = plan.tasks.filter((t) => t.status === 'completed').length;
   const progress = plan.tasks.length > 0 ? Math.round((completedCount / plan.tasks.length) * 100) : 0;
 
+  const handlePrint = () => window.print();
+  const handleShare = async () => {
+    const shareData = { title: plan.title, text: `${plan.title}\n\n${plan.description}`, url: window.location.href };
+    if (navigator.share) {
+      await navigator.share(shareData).catch(() => undefined);
+    } else {
+      await navigator.clipboard?.writeText(window.location.href);
+      window.alert('Plan link copied to your clipboard.');
+    }
+  };
+
   // Group tasks by category
   const tasksByCategory: Record<string, Task[]> = {};
   for (const task of plan.tasks) {
@@ -161,8 +172,12 @@ export default function PlanDetail() {
       <Link to="/plans" className="text-calm-500 hover:text-brand-600 text-sm mb-4 inline-block">← Back to plans</Link>
 
       {/* Plan Header */}
-      <div className="card mb-8">
+      <div className="card mb-8 print:shadow-none print:border-0">
         <div className="flex items-start justify-between flex-wrap gap-4">
+          <div className="flex gap-2 print:hidden">
+            <button type="button" onClick={handleShare} className="btn-secondary text-sm px-3 py-2">Share</button>
+            <button type="button" onClick={handlePrint} className="btn-secondary text-sm px-3 py-2">Print / PDF</button>
+          </div>
           <div className="flex-1 min-w-0">
             <h1 className="text-2xl font-bold font-display text-calm-900">{plan.title}</h1>
             <p className="mt-2 text-calm-600">{plan.description}</p>
