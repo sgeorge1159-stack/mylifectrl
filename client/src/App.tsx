@@ -19,11 +19,15 @@ import Concierge from './pages/Concierge';
 import NotFound from './pages/NotFound';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
+import InvestorDeck from './pages/InvestorDeck';
+import InperiumDeck from './pages/InperiumDeck';
 
 export default function App() {
   return (
     <Routes>
       {/* Public routes */}
+      <Route path="/decks/investor" element={<InvestorDeck />} />
+      <Route path="/decks/inperium" element={<InperiumDeck />} />
       <Route path="/" element={<Landing />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
