@@ -21,6 +21,7 @@ import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import InvestorDeck from './pages/InvestorDeck';
 import InperiumDeck from './pages/InperiumDeck';
+import DelcoPDDeck from './pages/DelcoPDDeck';
 
 export default function App() {
   return (
@@ -28,6 +29,8 @@ export default function App() {
       {/* Public routes */}
       <Route path="/decks/investor" element={<InvestorDeck />} />
       <Route path="/decks/inperium" element={<InperiumDeck />} />
+      <Route path="/decks/delco-pd" element={<DelcoPDDeck />} />
+      <Route path="/decks/delco-pd-deck.html" element={<DelcoPDDeck />} />
       <Route path="/" element={<Landing />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
