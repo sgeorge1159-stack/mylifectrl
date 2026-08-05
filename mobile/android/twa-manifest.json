@@ -1,0 +1,12 @@
+{
+  "packageId": "com.mylifectrl.app",
+  "host": "mylifectrl.com",
+  "startUrl": "/",
+  "name": "MyCTRL",
+  "launcherName": "MyCTRL",
+  "display": "standalone",
+  "themeColor": "#000000",
+  "navigationColor": "#000000",
+  "fallbackType": "customtabs",
+  "enableNotifications": false
+}
