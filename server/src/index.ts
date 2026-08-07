@@ -3,7 +3,7 @@ import { cors } from 'hono/cors';
 import type { Context } from 'hono';
 import { getDb } from './db';
 import type { User, ApiResponse, GeneratedPlan } from '../../shared/src/index';
-import { generatePlan } from './ai/planGenerator';
+import { generatePlan, generatePlanStream } from './ai/planGenerator';
 import { analyzeDocument, categorizeByFilename } from './ai/documentAnalyzer';
 import { handleStripeWebhook } from './stripeWebhook';
 import Stripe from 'stripe';
@@ -170,6 +170,37 @@ app.get('/api/plans', authMiddleware, (c) => {
   });
 
   return c.json({ ok: true, data: plansWithCounts });
+});
+
+app.post('/api/plans/stream', authMiddleware, async (c) => {
+  const { title, situation } = await c.req.json();
+  if (!situation || !situation.trim()) return c.json<ApiResponse>({ ok: false, error: 'Please describe your situation so we can build your plan.' }, 400);
+  const userId = c.get('userId');
+  const encoder = new TextEncoder();
+  const stream = new ReadableStream({
+    async start(controller) {
+      const send = (event: any) => controller.enqueue(encoder.encode(`data: ${JSON.stringify(event)}\n\n`));
+      try {
+        for await (const event of generatePlanStream(situation.trim())) {
+          if (event.type === 'complete') {
+            const db = getDb();
+            const planTitle = title?.trim() || event.plan.title;
+            const result = db.prepare('INSERT INTO plans (user_id, title, description, situation, disclaimer) VALUES (?, ?, ?, ?, ?)').run(userId, planTitle, event.plan.description, situation.trim(), event.plan.disclaimer);
+            const insertTask = db.prepare('INSERT INTO tasks (plan_id, title, description, priority, status, category, resources, estimated_time, due_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+            const now = new Date();
+            for (const task of event.plan.tasks) {
+              const days = task.priority >= 5 ? 1 : task.priority === 4 ? 3 : task.priority === 3 ? 7 : task.priority === 2 ? 14 : 30;
+              insertTask.run(result.lastInsertRowid, task.title, task.description, task.priority, 'pending', task.category, JSON.stringify(task.resources), task.estimated_time, new Date(now.getTime() + days * 86400000).toISOString().split('T')[0]);
+            }
+            send({ type: 'complete', planId: result.lastInsertRowid });
+          } else { send(event); }
+          if (event.type === 'error') break;
+        }
+      } catch (err: any) { send({ type: 'error', message: err?.message || 'Plan generation failed. Please try again.' }); }
+      finally { controller.close(); }
+    },
+  });
+  return new Response(stream, { headers: { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive' } });
 });
 
 app.post('/api/plans', authMiddleware, async (c) => {

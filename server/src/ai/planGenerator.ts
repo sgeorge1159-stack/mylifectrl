@@ -100,6 +100,79 @@ function validateGeneratedPlan(data: any): GeneratedPlan {
   };
 }
 
+export type StreamEvent =
+  | { type: 'start' }
+  | { type: 'title'; title: string }
+  | { type: 'description'; description: string }
+  | { type: 'task'; task: GeneratedTask }
+  | { type: 'complete'; plan: GeneratedPlan }
+  | { type: 'error'; message: string };
+
+/** Stream a plan while preserving the existing non-streaming generator. */
+export async function* generatePlanStream(situation: string): AsyncGenerator<StreamEvent> {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey || apiKey === 'sk-placeholder') throw new Error('OpenAI API key is not configured. Please set OPENAI_API_KEY in your .env file.');
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 120_000);
+  let buffer = '';
+  let titleSent = false;
+  let descriptionSent = false;
+  const sentTasks = new Set<string>();
+  const decode = (value: string) => { try { return JSON.parse('"' + value + '"'); } catch { return value; } };
+  const extractString = (key: string) => {
+    const match = buffer.match(new RegExp('\\"' + key + '\\\"\\s*:\\s*\\"((?:\\\\.|[^\\"\\\\])*)\\"'));
+    return match ? decode(match[1]) : null;
+  };
+  const extractTaskObjects = () => {
+    const start = buffer.indexOf('"tasks"');
+    if (start < 0) return [] as any[];
+    const arrayStart = buffer.indexOf('[', start);
+    if (arrayStart < 0) return [] as any[];
+    const objects: any[] = []; let depth = 0; let begin = -1; let quoted = false; let escaped = false;
+    for (let i = arrayStart + 1; i < buffer.length; i++) {
+      const ch = buffer[i];
+      if (quoted) { if (escaped) escaped = false; else if (ch === '\\\\') escaped = true; else if (ch === '\"') quoted = false; continue; }
+      if (ch === '\"') { quoted = true; continue; }
+      if (ch === '{') { if (depth++ === 0) begin = i; }
+      else if (ch === '}' && depth > 0 && --depth === 0 && begin >= 0) { try { objects.push(JSON.parse(buffer.slice(begin, i + 1))); } catch {} begin = -1; }
+      else if (ch === ']' && depth === 0) break;
+    }
+    return objects;
+  };
+  yield { type: 'start' };
+  try {
+    const openai = new OpenAI({ apiKey });
+    let stream: any;
+    for (const model of ['gpt-4o', 'gpt-4o-mini']) {
+      try {
+        stream = await openai.chat.completions.create({ model, messages: [
+          { role: 'system', content: SYSTEM_PROMPT + '\\nReturn valid JSON only. Do not use markdown.' },
+          { role: 'user', content: `Please create an action plan for someone in this situation:\\n\\n${situation}\\n\\nRespond with valid JSON only.` },
+        ], temperature: 0.7, max_tokens: 4000, stream: true }, { signal: controller.signal });
+        break;
+      } catch (err: any) { if (err?.status === 404 || err?.code === 'model_not_found') continue; throw err; }
+    }
+    if (!stream) throw new Error('No AI model was available to generate the plan. Please try again later.');
+    for await (const chunk of stream) {
+      buffer += chunk.choices?.[0]?.delta?.content || '';
+      if (!titleSent) { const value = extractString('title'); if (value) { titleSent = true; yield { type: 'title', title: value }; } }
+      if (!descriptionSent) { const value = extractString('description'); if (value) { descriptionSent = true; yield { type: 'description', description: value }; } }
+      for (const raw of extractTaskObjects()) {
+        try { const task = validateGeneratedPlan({ title: 'x', description: 'x', tasks: [raw] }).tasks[0]; const key = JSON.stringify(task); if (!sentTasks.has(key)) { sentTasks.add(key); yield { type: 'task', task }; } } catch { /* object is still incomplete/invalid */ }
+      }
+    }
+    let parsed: any;
+    try { parsed = JSON.parse(buffer); } catch { const match = buffer.match(/\\{[\\s\\S]*\\}/); if (!match) throw new Error('AI response could not be parsed. Please try again.'); parsed = JSON.parse(match[0]); }
+    const plan = validateGeneratedPlan(parsed);
+    // Ensure any task not emitted due to chunk boundaries is still delivered.
+    for (const task of plan.tasks) { const key = JSON.stringify(task); if (!sentTasks.has(key)) yield { type: 'task', task }; }
+    yield { type: 'complete', plan };
+  } catch (err: any) {
+    const message = err?.name === 'AbortError' || err?.code === 'ETIMEDOUT' ? 'Plan generation timed out. Please try again — your situation may need a more focused description.' : (err?.message || 'Unable to generate plan right now. Please try again.');
+    yield { type: 'error', message };
+  } finally { clearTimeout(timeoutId); }
+}
+
 export async function generatePlan(situation: string): Promise<GeneratedPlan> {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey || apiKey === 'sk-placeholder') {
