@@ -1,4 +1,4 @@
-app = "lifectrl-api"
+app = "mylifectrl"
 primary_region = "iad"
 
 [build]
