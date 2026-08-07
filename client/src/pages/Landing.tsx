@@ -303,7 +303,7 @@ export default function Landing() {
             Purpose-built verticals for the populations you serve. The institution pays.
             The individual receives MyCTRL as part of their services.
           </p>
-          <div className="mt-10 grid sm:grid-cols-2 gap-5">
+          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
                 to: '/reentry',
@@ -318,6 +318,13 @@ export default function Landing() {
                 badgeClass: 'bg-accent-50 text-accent-700',
                 headline: 'Improve SUD treatment retention.',
                 desc: 'Patient engagement and behavioral health case management for addiction treatment programs.',
+              },
+              {
+                to: '/ability',
+                badge: 'Ability',
+                badgeClass: 'bg-accent-50 text-accent-700',
+                headline: 'Coordinate IDD & autism support.',
+                desc: 'Lifespan planning, provider coordination, and benefits navigation for individuals with disabilities.',
               },
               {
                 to: '/campus',
