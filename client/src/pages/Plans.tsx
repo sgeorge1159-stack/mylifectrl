@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+
+interface StreamTask { title: string; description: string; priority: number; category: string; resources: string[]; estimated_time: string; }
 import { Link } from 'react-router-dom';
 
 interface PlanSummary {
@@ -19,6 +21,10 @@ export default function Plans() {
   const [error, setError] = useState('');
   const [plans, setPlans] = useState<PlanSummary[]>([]);
   const [plansLoading, setPlansLoading] = useState(true);
+  const [streamTitle, setStreamTitle] = useState('');
+  const [streamDescription, setStreamDescription] = useState('');
+  const [streamTasks, setStreamTasks] = useState<StreamTask[]>([]);
+  const controllerRef = useRef<AbortController | null>(null);
 
   const token = localStorage.getItem('token');
 
@@ -40,6 +46,7 @@ export default function Plans() {
 
   useEffect(() => {
     fetchPlans();
+    return () => controllerRef.current?.abort();
   }, []);
 
   const handleGenerate = async (e: React.FormEvent) => {
@@ -53,7 +60,7 @@ export default function Plans() {
     const timeoutId = setTimeout(() => controller.abort(), 90_000);
 
     try {
-      const res = await fetch('/api/plans', {
+      const res = await fetch('/api/plans/stream', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,15 +73,34 @@ export default function Plans() {
         }),
         signal: controller.signal,
       });
-      const data = await res.json();
-
-      if (data.ok) {
-        setSituation('');
-        setFocusAreas([]);
-        await fetchPlans();
-      } else {
-        setError(data.error || 'Failed to generate plan. Please try again.');
+      if (!res.ok || !res.body) throw new Error('Unable to start plan generation.');
+      controllerRef.current = controller;
+      setStreamTitle(''); setStreamDescription(''); setStreamTasks([]);
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let pending = '';
+      let planId: number | null = null;
+      const process = (raw: string) => {
+        for (const line of raw.split('\n')) {
+          if (!line.startsWith('data: ')) continue;
+          const event = JSON.parse(line.slice(6));
+          if (event.type === 'title') setStreamTitle(event.title);
+          else if (event.type === 'description') setStreamDescription(event.description);
+          else if (event.type === 'task') setStreamTasks((tasks) => [...tasks, event.task]);
+          else if (event.type === 'error') throw new Error(event.message);
+          else if (event.type === 'complete') planId = event.planId;
+        }
+      };
+      while (true) {
+        const { value, done } = await reader.read();
+        pending += decoder.decode(value || new Uint8Array(), { stream: !done });
+        const events = pending.split('\n\n'); pending = events.pop() || '';
+        process(events.join('\n\n'));
+        if (done) break;
       }
+      if (!planId) throw new Error('Plan generation ended before it was saved.');
+      setSituation(''); setFocusAreas([]); await fetchPlans();
+      window.location.href = `/plans/${planId}`;
     } catch (err: any) {
       if (err?.name === 'AbortError') {
         setError('Your plan is taking longer than expected. The AI may be busy — try describing your situation more briefly, or wait a moment and try again.');
@@ -118,6 +144,14 @@ export default function Plans() {
 
       {/* Generate Plan Input */}
       <div className="card mb-8 border-brand-200 bg-gradient-to-br from-brand-50/30 to-white">
+        {loading ? (
+          <div className="space-y-5" aria-live="polite">
+            <h2 className="text-2xl font-bold text-calm-900">{streamTitle || 'Building your action plan…'}</h2>
+            {streamDescription && <p className="text-calm-600">{streamDescription}</p>}
+            <div className="space-y-3">{streamTasks.map((task, i) => <div key={`${task.title}-${i}`} className="task-card-streaming rounded-xl border border-calm-100 bg-white p-4"><div className="font-semibold text-calm-900">{task.title}</div><p className="mt-1 text-sm text-calm-600">{task.description}</p><span className="mt-2 inline-block text-xs text-calm-400">{task.estimated_time}</span></div>)}</div>
+            <p className="text-sm text-brand-600 animate-pulse">✦ AI is working…</p>
+          </div>
+        ) : <>
         <h2 className="font-semibold text-calm-900 mb-3 text-lg">Describe your situation</h2>
         <p className="text-sm text-calm-600 mb-4">
           Tell MyCTRL what you're facing in your own words. Our AI will build you a personalized, step-by-step action plan.
@@ -168,6 +202,7 @@ export default function Plans() {
             )}
           </button>
         </form>
+        </>}
       </div>
 
       {/* Plans List */}
