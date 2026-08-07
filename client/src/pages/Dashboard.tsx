@@ -18,6 +18,7 @@ export default function Dashboard() {
   const [plans, setPlans] = useState<PlanSummary[]>([]);
   const [plansLoading, setPlansLoading] = useState(true);
   const [tryItLoading, setTryItLoading] = useState(false);
+  const [tryItError, setTryItError] = useState('');
   const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
@@ -43,6 +44,9 @@ export default function Dashboard() {
 
   const handleTryExample = async () => {
     setTryItLoading(true);
+    setTryItError('');
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 90_000);
     try {
       const res = await fetch('/api/plans', {
         method: 'POST',
@@ -51,14 +55,22 @@ export default function Dashboard() {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ situation: EXAMPLE_SITUATION }),
+        signal: controller.signal,
       });
       const data = await res.json();
       if (data.ok) {
         navigate(`/plans/${data.data.id}`);
+      } else {
+        setTryItError(data.error || 'Failed to generate plan. Please try again.');
       }
-    } catch {
-      // Silently fail — user can create manually
+    } catch (err: any) {
+      if (err?.name === 'AbortError') {
+        setTryItError('The AI is taking longer than expected. Try again in a moment, or go to Action Plans to describe your situation directly.');
+      } else {
+        setTryItError('Unable to reach our servers. Please check your connection.');
+      }
     } finally {
+      clearTimeout(timeoutId);
       setTryItLoading(false);
     }
   };
@@ -111,6 +123,8 @@ export default function Dashboard() {
                     </svg>
                     Building your plan...
                   </div>
+                ) : tryItError ? (
+                  <div className="mt-3 p-2 bg-red-50 text-red-700 rounded-lg text-sm">{tryItError}</div>
                 ) : (
                   <span className="inline-block mt-3 text-sm font-medium text-brand-600 group-hover:text-brand-700">
                     Click to try it →

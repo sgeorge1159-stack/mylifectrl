@@ -49,6 +49,9 @@ export default function Plans() {
     setError('');
     setLoading(true);
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 90_000);
+
     try {
       const res = await fetch('/api/plans', {
         method: 'POST',
@@ -61,6 +64,7 @@ export default function Plans() {
             ? `${situation.trim()}\n\nAreas I may need help with: ${focusAreas.join(', ')}.`
             : situation.trim(),
         }),
+        signal: controller.signal,
       });
       const data = await res.json();
 
@@ -71,9 +75,14 @@ export default function Plans() {
       } else {
         setError(data.error || 'Failed to generate plan. Please try again.');
       }
-    } catch {
-      setError('Network error. Please check your connection and try again.');
+    } catch (err: any) {
+      if (err?.name === 'AbortError') {
+        setError('Your plan is taking longer than expected. The AI may be busy — try describing your situation more briefly, or wait a moment and try again.');
+      } else {
+        setError('Unable to reach our servers. Please check your internet connection and try again.');
+      }
     } finally {
+      clearTimeout(timeoutId);
       setLoading(false);
     }
   };

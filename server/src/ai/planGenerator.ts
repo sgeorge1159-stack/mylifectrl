@@ -109,7 +109,7 @@ export async function generatePlan(situation: string): Promise<GeneratedPlan> {
   const openai = new OpenAI({ apiKey });
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 30_000);
+  const timeoutId = setTimeout(() => controller.abort(), 120_000);
 
   try {
     // Try gpt-4o first, fall back to gpt-4o-mini
