@@ -268,7 +268,7 @@ export default function Landing() {
               </div>
               <h3 className="text-xl font-bold font-display text-calm-900 mb-2">MyCTRL™ Pro</h3>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-calm-900">$14.99</span>
+                <span className="text-4xl font-bold text-calm-900">$19</span>
                 <span className="text-calm-500 text-sm">/month</span>
               </div>
               <ul className="space-y-3 mb-8 flex-1">
