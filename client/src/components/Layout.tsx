@@ -11,6 +11,7 @@ const navItems = [
   { to: '/vault', label: 'LifeVault', icon: '◒' },
   { to: '/kits', label: 'Life Kits', icon: '✦' },
   { to: '/concierge', label: 'Concierge', icon: '◆' },
+  { to: '/pricing', label: 'Pricing', icon: '◉' },
 ];
 
 export default function Layout() {

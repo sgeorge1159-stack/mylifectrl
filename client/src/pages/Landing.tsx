@@ -12,6 +12,7 @@ export default function Landing() {
             <BrandLogo />
           </span>
           <div className="flex items-center gap-3">
+            <Link to="/pricing" className="btn-ghost">Pricing</Link>
             <Link to="/login" className="btn-ghost">Log in</Link>
             <Link to="/signup" className="btn-primary text-sm px-5 py-2.5">Get Started</Link>
           </div>
@@ -42,7 +43,12 @@ export default function Landing() {
                   I already have an account
                 </Link>
               </div>
-              <p className="text-sm text-calm-400">No credit card required. Free plan available.</p>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                <Link to="/pricing" className="btn-ghost px-0 sm:px-2 -ml-2 sm:ml-0 text-brand-600 hover:text-brand-700 font-semibold">
+                  View Pricing →
+                </Link>
+                <p className="text-sm text-calm-400">No credit card required. Free plan available.</p>
+              </div>
             </div>
             <div className="hidden lg:block">
               <div className="bg-white rounded-3xl shadow-xl border border-calm-200 p-8 space-y-6">
