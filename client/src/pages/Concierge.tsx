@@ -12,6 +12,19 @@ interface ConciergeBooking {
   created_at: string;
 }
 
+const SESSION_OPTIONS = [
+  {
+    name: '30-Min Session',
+    price: 49,
+    desc: "A focused session with a real human to tackle a specific administrative task — an application, a letter, a deadline you can't miss.",
+  },
+  {
+    name: '60-Min Session',
+    price: 89,
+    desc: 'A deeper working session for complex situations — multi-step paperwork, benefits navigation, or a full document overhaul.',
+  },
+] as const;
+
 const TIME_SLOTS = [
   { value: 'Morning (9am-12pm)', label: 'Morning (9am–12pm)' },
   { value: 'Afternoon (12pm-4pm)', label: 'Afternoon (12pm–4pm)' },
@@ -43,6 +56,7 @@ export default function Concierge() {
   const [topic, setTopic] = useState('');
   const [description, setDescription] = useState('');
   const [preferredTime, setPreferredTime] = useState('');
+  const [sessionType, setSessionType] = useState<'30-Min Session' | '60-Min Session'>('30-Min Session');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState<ConciergeBooking | null>(null);
@@ -97,6 +111,8 @@ export default function Concierge() {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  const selectedSession = SESSION_OPTIONS.find((session) => session.name === sessionType) || SESSION_OPTIONS[0];
 
   const resetForm = () => {
     setTopic('');
@@ -344,6 +360,36 @@ export default function Concierge() {
                 <p className="text-xs text-calm-400 mt-1">{description.length}/1000</p>
               </div>
 
+              {/* Session type */}
+              <fieldset className="mb-6">
+                <legend className="block text-sm font-medium text-calm-700 mb-2">
+                  Session length <span className="text-red-400">*</span>
+                </legend>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {SESSION_OPTIONS.map((session) => (
+                    <label
+                      key={session.name}
+                      className={`block cursor-pointer rounded-xl border p-4 transition-all ${sessionType === session.name ? 'border-brand-400 bg-brand-50 ring-1 ring-brand-200' : 'border-calm-200 bg-white hover:border-brand-300'}`}
+                    >
+                      <input
+                        type="radio"
+                        name="sessionType"
+                        value={session.name}
+                        checked={sessionType === session.name}
+                        onChange={() => setSessionType(session.name)}
+                        className="sr-only"
+                        disabled={submitting || paymentStarted}
+                      />
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="font-semibold text-calm-900">{session.name}</span>
+                        <span className="text-lg font-bold text-brand-600">${session.price}</span>
+                      </span>
+                      <span className="block text-xs text-calm-500 mt-1">{session.desc}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+
               {/* Preferred time */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-calm-700 mb-1.5">
@@ -370,8 +416,8 @@ export default function Concierge() {
               {/* Price indicator + Submit */}
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-2">
-                  <span className="text-xl font-bold text-calm-900">$75</span>
-                  <span className="text-sm text-calm-500">per session</span>
+                  <span className="text-xl font-bold text-calm-900">${selectedSession.price}</span>
+                  <span className="text-sm text-calm-500">{selectedSession.name.toLowerCase()}</span>
                 </div>
                 {!paymentStarted ? (
                   <button
@@ -379,7 +425,7 @@ export default function Concierge() {
                     disabled={submitting}
                     className="btn-primary"
                   >
-                    Pay $75 & Book Session →
+                    Pay ${selectedSession.price} & Book {selectedSession.name} →
                   </button>
                 ) : (
                   <button
