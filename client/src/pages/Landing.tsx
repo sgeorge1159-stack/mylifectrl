@@ -191,7 +191,7 @@ export default function Landing() {
               {
                 icon: '✦',
                 title: 'Life Kits',
-                desc: 'Curated guides for job loss, moving, finances, caregiving, and more — built by experts.',
+                desc: 'Job Loss Recovery, ReEntry, Recovery, IDD & Autism Support, Career Transition, and more — 13 expert-built guides.',
               },
               {
                 icon: '◆',
@@ -235,7 +235,7 @@ export default function Landing() {
           <p className="text-calm-600 text-center mb-12 max-w-lg mx-auto">
             Start for free. Upgrade when you need more power.
           </p>
-          <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Free Plan */}
             <div className="card border-calm-200 p-8 flex flex-col">
               <h3 className="text-xl font-bold font-display text-calm-900 mb-2">Free</h3>
@@ -261,10 +261,35 @@ export default function Landing() {
               </Link>
             </div>
 
+            {/* Plus Plan */}
+            <div className="card border-calm-200 p-8 flex flex-col">
+              <h3 className="text-xl font-bold font-display text-calm-900 mb-1">MyCTRL Plus</h3>
+              <p className="text-sm text-calm-500 mb-4">Everything you need to get unstuck and stay on track.</p>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-calm-900">$9</span>
+                <span className="text-calm-500 text-sm">/month</span>
+              </div>
+              <ul className="space-y-3 mb-8 flex-1">
+                {[
+                  'Unlimited action plans',
+                  '5GB LifeVault storage',
+                  'Priority AI generation',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-calm-700">
+                    <span className="text-brand-500 mt-0.5">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/signup" className="btn-secondary text-sm w-full text-center">
+                Subscribe to Plus
+              </Link>
+            </div>
+
             {/* Pro Plan */}
             <div className="card border-brand-300 bg-gradient-to-br from-brand-50/40 to-white p-8 flex flex-col relative">
               <div className="absolute -top-3 right-4 bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                POPULAR
+                MOST POPULAR
               </div>
               <h3 className="text-xl font-bold font-display text-calm-900 mb-2">MyCTRL™ Pro</h3>
               <div className="mb-4">
