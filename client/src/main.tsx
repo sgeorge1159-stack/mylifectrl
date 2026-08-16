@@ -5,10 +5,8 @@ import { Analytics } from '@vercel/analytics/react';
 import App from './App';
 import './styles/app.css';
 
-// Register the production service worker to enable offline shell caching and install prompts.
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
-}
+// Service worker registration removed: a prior cache-first SW served stale HTML
+// and caused blank white screens for repeat visitors. The site loads fresh without it.
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
